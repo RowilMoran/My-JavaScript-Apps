@@ -1,0 +1,226 @@
+
+@use '_variables' as v;
+@use '_reset';
+@use '_mixins' as m;
+@use '_utilities'; 
+@use '_navMenu';
+@use '_layout';
+
+
+
+.memory-card {
+    height: 100vh;
+    background-image: url("/Resources/memoryCard/bgTitans.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    h1 {
+        font-family: v.$titans-font;
+        padding: 30px;
+        font-size: v.$step-4;
+        font-weight: 700; 
+        -webkit-text-stroke: 2px black;
+        -webkit-text-fill-color: #47b7eb;
+        flex-direction: column;
+        width: 100%;
+        img {
+            display: inline-block;
+            max-width: 80px;
+            width: 100%;
+        }
+    }
+}
+
+.difficulty-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50vh;
+    width: 900px;
+    margin: 0 auto;
+    max-width: 100%;
+    .difficulty {
+        margin-top: 50px;
+        height: 70vh;
+        height: 100%;
+        min-height: 270px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 350px;
+        text-align: center;
+        background-color: v.$primary-color;
+        padding: 20px;
+        
+        h3 {
+            font-size: v.$step-2;
+        }
+    
+        .r-b-container{
+            display: block;
+            position: relative;
+            margin-top: 20px;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            user-select: none;
+        
+    
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+    
+                &:checked ~ .checkmark {
+                    background-color: v.$third-color;
+                  }
+              }
+    
+            .checkmark {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 25px;
+                width: 25px;
+                background-color: #eee;
+                border-radius: 50%;
+    
+              }
+    
+        &:hover,:hover input ~ .checkmark {
+            background-color: v.$primary-color;
+          }
+    
+        }
+    }
+}
+
+.myButton {
+	box-shadow: 0px 10px 14px -7px #276873;
+    margin: 20px 0;
+	background-color: v.$third-color;
+	border-radius:8px;
+    border: 3px solid #000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+    transition: all 0.1s ease-in;
+    &:hover {
+        background-color:#47b7eb;
+        text-shadow:0px 1px 0px #3d768a;
+    }
+    &:active {
+        position:relative;
+        top:1px;
+    }
+    }
+
+.game-container {
+    height: 100vh;
+    position: fixed;
+    @include m.flexCenter;
+    flex-direction: column;
+    width: 100%;
+    top: 0;
+    background-color: rgb(226, 223, 24);
+    opacity: 0;
+    pointer-events: none;
+    &.show {
+        opacity: 1;
+        pointer-events: all;
+    }
+    h3 {
+        font-size: v.$step-1;
+        .lives-value {
+            color: #47b7eb;
+        }
+    }
+
+    .cards-container{
+        max-width: 100%;
+        perspective: 800px;
+        display: grid;
+        .card {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: all 0.6s ease-in;
+            box-shadow: 5px 6px 30px -15px rgba(0,0,0,0.75);
+            &.rotate {
+                transform: rotateY(180deg);
+            }
+            
+            img {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                pointer-events: none;
+            }
+            .back {
+                position: absolute;
+                background-image: url("/Resources/memoryCard/teensCard.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+                width: 128px;
+                height: 128px;
+                backface-visibility: hidden;
+                pointer-events: none;
+            }
+        }
+    }
+}
+.pro { 
+    display: grid;
+    grid-template-columns: repeat(8, 8rem);
+    grid-template-rows: repeat(4, 8rem);
+    gap: 20px;
+    width:auto;
+}
+
+.easy {
+    grid-template-columns: repeat(4, 8rem);
+    grid-template-rows: repeat(4, 8rem);
+    gap: 20px;
+    width:auto;
+}
+
+.lost, .win {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.808);
+    @include m.flexCenter();
+    transition: all 0.3s ease-in;
+    .lost-card, .win-card {
+        width: 350px;
+        height: auto;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem;
+        background-color: v.$primary-color;
+        @include m.flexColumn();
+        font-size: v.$step-2;
+        border-radius: 20px;
+
+    }
+    &.show {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+}

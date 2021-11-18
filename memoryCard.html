@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/Css/memory_card.css">
+    <link rel="icon" href="Resources/memoryCard/Go!.png">
+    <title>Memory Card</title>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar container">
+            <a class="logo" href="index.html">
+                <img src="resources/logo.png" alt="">
+                <span class="logo-text">Row App Site</span>   
+            </a>
+           <div class="dropdown-menu">
+                <div class="games">
+                    <button>Games<img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul class="dropdown">
+                        <li><a href="snake.html">Snake</a></li>
+                        <li><a href="memoryCard.html">Memory Card</a></li>
+                    </ul>
+                </div>
+                <div class="api">
+                    <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul>
+                        <li><a href="#">Movie App</a></li>
+                        <li><a href="#">Music App</a></li>
+                    </ul>
+                </div>
+                <div class="other">
+                    <button>Others <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul>
+                        <li><a href="#">ToDo App</a></li>
+                        <li><a href="#">Weather App</a></li>
+                    </ul>
+                </div>
+           </div>
+        </nav>
+    </header>
+    <!-- lost the game -->
+    <div class="lost">
+        <div class="lost-card">
+            <img src="Resources/memoryCard/lost.jpg" alt="Titans lost">
+            <p>You Lost the game Try Again</p>
+        </div>
+    </div>
+     <!-- lost the game -->
+     <div class="win">
+         <div class="win-card">
+            <img src="Resources/memoryCard/win.jpg" alt="Titans lost">
+            <p>You WON the game!! congrats TITAN!!</p>
+         </div>
+     </div>
+    <section class="memory-card">
+        <h1>Teen Titans <img src="Resources/memoryCard/Go!.png" alt="" >  Memory Card</h1>
+        <div class="titans-img">
+            <img src="" alt="">
+        </div>
+        <div class="difficulty-container">
+            <div class="difficulty">
+                <h3>Choose difficulty</h3>
+                <label class="r-b-container">Easy
+                    <input type="radio" name="difficulty" value="easy" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="r-b-container">Pro
+                    <input type="radio" name="difficulty" value="pro">
+                    <span class="checkmark"></span>
+                </label>
+                <button class="myButton" id="btn">Titans GO!!</button>
+            </div>
+        </div>
+        <div class="game-container">
+            <h3 class="lives">Lives: <span class="lives-value"></span></h3>
+            <div class="cards-container"></div>
+        </div>
+    </section>
+    <script src="js/memoryCard.js"></script>
+</body>
+</html>

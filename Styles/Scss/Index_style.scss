@@ -1,0 +1,103 @@
+@use '_variables' as v;
+@use '_reset';
+@use '_mixins' as m;
+@use '_layout';
+@use '_utilities'; 
+@use '_navMenu';
+
+
+
+
+
+.hero {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    place-items: center;
+    padding: 20px;
+    height: 92vh;
+
+
+    img {
+        width: 650px;
+        height: auto;
+        display: block;
+        max-width: 100%;
+        justify-self: end;
+
+    }
+}
+
+.hero-desc {
+    max-width: 100%;
+    h1 {
+        font-size: v.$step-5;
+        margin-bottom: 10px;
+
+        
+        .js-theme {
+            display: inline-block;
+            background-color: v.$secondary-color;
+            color: #F7DF1E;
+            padding: 15px;
+            margin: 5px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+    }
+
+    p {
+        font-size: v.$step-1;
+        font-weight: 300;
+    }
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns:  repeat(auto-fill, minmax(270px, 1fr));
+    max-width: 870px;
+    gap: 20px;
+    .ctn-card{
+        .tag-title {
+            background-color: v.$secondary-color;
+            display: inline-block;
+            color: v.$primary-color;
+            font-size: v.$step-0;
+            padding: 8px;
+            border-radius: 15px 15px 0 0;
+        }
+        .card {
+            position: relative;
+            max-width: 310px;
+            padding: 20px;
+            background-color: rgba(189, 189, 189, 0.233);
+            border-radius: 10px;
+            transition: all 0.1s ease-in;
+            &:hover {
+                transform: translateY(4px);
+                box-shadow: 7px 6px 13px -7px rgba(0,0,0,0.75);
+            }
+            .card-desc {
+                .tech {
+                    display: inline-block;
+                    font-weight: 700;
+                    margin: 10px 0;
+                }
+            }
+            .clickable-card {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+            h4 {
+                font-size: v.$step--1;
+            }
+            img {
+                max-width: 100%;
+                display: block;
+            }
+        }
+
+    }
+}

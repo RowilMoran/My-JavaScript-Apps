@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/Css/snake.css">
+    <link rel="icon" href="Resources/snake/noto_snake.png">
+    <title>Snake Game</title>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar container">
+            <a class="logo" href="index.html">
+                <img src="resources/logo.png" alt="">
+                <span class="logo-text">Row App Site</span>   
+            </a>
+           <div class="dropdown-menu">
+                <div class="games">
+                    <button>Games<img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul class="dropdown">
+                        <li><a href="snake.html">Snake</a></li>
+                        <li><a href="memoryCard.html">Memory Card</a></li>
+                    </ul>
+                </div>
+                <div class="api">
+                    <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul>
+                        <li><a href="#">Movie App</a></li>
+                        <li><a href="#">Music App</a></li>
+                    </ul>
+                </div>
+                <div class="other">
+                    <button>Others <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul>
+                        <li><a href="#">ToDo App</a></li>
+                        <li><a href="#">Weather App</a></li>
+                    </ul>
+                </div>
+           </div>
+        </nav>
+    </header>
+
+    <div class="pop-up" id="pop-up">
+        <div class="card">
+           <p>You lost the game  try again 😑 </p>
+        </div>
+    </div>
+    
+    <section class="snake">
+        <h1 class="snake-title my-5"> <img src="Resources/snake/noto_snake.png" alt=""> Snake Game</h1>
+        <div class="controls container">
+            <div class="controls-container">
+                <p><img src="Resources/snake/keyboardArrow 1.png" alt=""> Use arrows of your keyboard to control the snake</p>
+            </div>
+            <div class="difficulty">
+                <h3>Choose difficulty</h3>
+                <label class="r-b-container">Easy
+                    <input type="radio" name="level" value="300" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="r-b-container">Medium
+                    <input type="radio" name="level" value="200">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="r-b-container">Pro
+                    <input type="radio" name="level" value="100">
+                    <span class="checkmark"></span>
+                </label>
+                <button class="myButton" id="btn">Let's Go!</button>
+            </div>
+        </div>
+        
+        <div class="container canvas">
+            <canvas class="auto-margin" id="canvas" width="608px"  height="608px"></canvas>
+        </div>
+    </section>
+<script src="js/snake.js"></script>
+</body>
+</html>

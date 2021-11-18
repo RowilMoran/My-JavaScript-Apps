@@ -1,0 +1,181 @@
+@use '_variables' as v;
+@use '_reset';
+@use '_mixins' as m;
+@use '_utilities'; 
+@use '_navMenu';
+@use '_layout';
+
+
+.pop-up {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.479);
+    @include m.flexCenter();
+    transition: all 0.3s ease-in;
+
+    .card {
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem;
+        background-color: v.$primary-color;
+        @include m.flexCenter();
+        font-size: v.$step-2;
+        border-radius: 20px;
+
+    }
+    &.show {
+        opacity: 1;
+        pointer-events: all; 
+    }
+
+
+}
+
+.difficulty {
+    max-width: 350px;
+    text-align: center;
+    
+    h3 {
+        font-size: v.$step-2;
+    }
+
+    .r-b-container{
+        display: block;
+        position: relative;
+        margin-top: 20px;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        user-select: none;
+    
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+
+            &:checked ~ .checkmark {
+                background-color: v.$third-color;
+              }
+          }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+
+          }
+
+    &:hover,:hover input ~ .checkmark {
+        background-color: v.$primary-color;
+      }
+
+    }
+}
+
+
+.snake {
+    .snake-title {
+        font-size: v.$step-4;
+        @include m.flexCenter;
+        gap: 10px;
+      
+    }
+
+    .controls {
+        @include m.flexCenter();
+        max-width: 620px;
+        gap: 20px;
+        background-color: v.$primary-color;
+        border-radius: 15px;
+        padding: 20px;
+        .controls-container {
+            background-color: #fff;
+            font-size: v.$step--1;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 300px;
+            @include m.flexCenter();
+            @include m.shadow();
+    
+            p  {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                max-width: 220px;
+                text-align: center;
+    
+                img {
+                    display: block;
+                    max-width: 100%;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+}
+
+.canvas {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index:1;
+    background-color: rgba(0, 0, 0, 0.479);
+    @include m.flexCenter();
+    transition: all 0.3s ease-in;
+    &.show {
+        opacity: 1;
+        pointer-events: all; 
+        display: block;
+    }
+}
+
+.myButton {
+	box-shadow: 0px 10px 14px -7px #276873;
+    margin: 20px 0;
+	background-color: v.$third-color;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+    &:hover {
+        background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color:#408c99;
+        text-shadow:0px 1px 0px #3d768a;
+    }
+    &:active {
+        position:relative;
+        top:1px;
+    }
+    }
+
+
+
