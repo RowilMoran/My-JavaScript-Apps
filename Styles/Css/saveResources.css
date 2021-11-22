@@ -1,0 +1,520 @@
+@import url("https://fonts.googleapis.com/css2?family=Petrona:wght@300;400;500;600;700;900&family=Playfair+Display+SC:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Petrona", serif;
+}
+
+/* ********************************* Margins ***************************************** */
+/* margin */
+.m-1 {
+  margin: 8px;
+}
+
+.m-2 {
+  margin: 16px;
+}
+
+.m-3 {
+  margin: 24px;
+}
+
+.m-4 {
+  margin: 32px;
+}
+
+.m-5 {
+  margin: 40px;
+}
+
+.m-6 {
+  margin: 48px;
+}
+
+/* margin top and bottom */
+.my-1 {
+  margin: 8px 0;
+}
+
+.my-2 {
+  margin: 16px 0;
+}
+
+.my-3 {
+  margin: 24px 0;
+}
+
+.my-4 {
+  margin: 32px 0;
+}
+
+.my-5 {
+  margin: 40px 0;
+}
+
+.my-6 {
+  margin: 48px 0;
+}
+
+/* Margin top */
+.mt-1 {
+  margin-top: 8px;
+}
+
+.mt-2 {
+  margin-top: 16px;
+}
+
+.mt-3 {
+  margin-top: 24px;
+}
+
+.mt-4 {
+  margin-top: 32px;
+}
+
+.mt-5 {
+  margin-top: 40px;
+}
+
+.mt-6 {
+  margin-top: 48px;
+}
+
+/* Margin bottom */
+.mb-1 {
+  margin-bottom: 8px;
+}
+
+.mb-2 {
+  margin-bottom: 16px;
+}
+
+.mb-3 {
+  margin-bottom: 24px;
+}
+
+.mb-4 {
+  margin-bottom: 32px;
+}
+
+.mb-5 {
+  margin-bottom: 40px;
+}
+
+.mb-6 {
+  margin-bottom: 48px;
+}
+
+/* margin Righ anb left */
+.mx-1 {
+  margin: 0 8px;
+}
+
+.mx-2 {
+  margin: 0 16px;
+}
+
+.mx-3 {
+  margin: 0 24px;
+}
+
+.mx-4 {
+  margin: 0 32px;
+}
+
+.mx-5 {
+  margin: 0 40px;
+}
+
+.mx-6 {
+  margin: 0 48px;
+}
+
+/* margin left */
+.ml-1 {
+  margin-left: 8px;
+}
+
+.ml-2 {
+  margin-left: 16px;
+}
+
+.ml-3 {
+  margin-left: 24px;
+}
+
+.ml-4 {
+  margin-left: 32px;
+}
+
+.ml-5 {
+  margin-left: 40px;
+}
+
+.ml-6 {
+  margin-left: 48px;
+}
+
+/* margin right */
+.mr-1 {
+  margin-right: 8px;
+}
+
+.mr-2 {
+  margin-right: 16px;
+}
+
+.mr-3 {
+  margin-right: 24px;
+}
+
+.mr-4 {
+  margin-right: 32px;
+}
+
+.mr-5 {
+  margin-right: 40px;
+}
+
+.mr-6 {
+  margin-right: 48px;
+}
+
+/* ********************************* Paddings ***************************************** */
+/* paddings */
+.p-1 {
+  padding: 8px;
+}
+
+.p-2 {
+  padding: 16px;
+}
+
+.p-3 {
+  padding: 24px;
+}
+
+.p-4 {
+  padding: 32px;
+}
+
+.p-5 {
+  padding: 40px;
+}
+
+.p-6 {
+  padding: 48px;
+}
+
+/* Paddings Top and bottom */
+.p-y1 {
+  padding: 8px 0;
+}
+
+.p-y2 {
+  padding: 16px 0;
+}
+
+.p-y3 {
+  padding: 24px 0;
+}
+
+.p-y4 {
+  padding: 32px 0;
+}
+
+.p-y5 {
+  padding: 40px 0;
+}
+
+.p-y6 {
+  padding: 48px 0;
+}
+
+/* padding Top */
+.pt-1 {
+  padding-top: 8px;
+}
+
+.pt-2 {
+  padding-top: 16px;
+}
+
+.pt-3 {
+  padding-top: 24px;
+}
+
+.pt-4 {
+  padding-top: 32px;
+}
+
+.pt-5 {
+  padding-top: 40px;
+}
+
+.pt-6 {
+  padding-top: 48px;
+}
+
+/* padding bottom */
+.pb-1 {
+  padding-bottom: 8px;
+}
+
+.pb-2 {
+  padding-bottom: 16px;
+}
+
+.pb-3 {
+  padding-bottom: 24px;
+}
+
+.pb-4 {
+  padding-bottom: 32px;
+}
+
+.pb-5 {
+  padding-bottom: 40px;
+}
+
+.pb-6 {
+  padding-bottom: 48px;
+}
+
+/* Paddings left and right */
+.p-x1 {
+  padding: 0 8px;
+}
+
+.p-x2 {
+  padding: 0 16px;
+}
+
+.p-x3 {
+  padding: 0 24px;
+}
+
+.p-x4 {
+  padding: 0 32px;
+}
+
+.p-x5 {
+  padding: 0 40px;
+}
+
+.p-x6 {
+  padding: 0 48px;
+}
+
+/* padding left */
+.ml-1 {
+  padding-left: 8px;
+}
+
+.ml-2 {
+  padding-left: 16px;
+}
+
+.ml-3 {
+  padding-left: 24px;
+}
+
+.ml-4 {
+  padding-left: 32px;
+}
+
+.ml-5 {
+  padding-left: 40px;
+}
+
+.ml-6 {
+  padding-left: 48px;
+}
+
+/* padding Right */
+.mr-1 {
+  padding-right: 8px;
+}
+
+.mr-2 {
+  padding-right: 16px;
+}
+
+.mr-3 {
+  padding-right: 24px;
+}
+
+.mr-4 {
+  padding-right: 32px;
+}
+
+.mr-5 {
+  padding-right: 40px;
+}
+
+.mr-6 {
+  padding-right: 48px;
+}
+
+header {
+  border-bottom: 1px solid #b6b6b6;
+}
+
+.nav-bar {
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar .logo {
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Playfair Display SC", serif;
+  font-size: clamp(2.27rem, 2.01rem + 1.29vw, 2.93rem);
+  color: #37474F;
+}
+.nav-bar .logo .logo-text {
+  margin-left: 10px;
+}
+.nav-bar .dropdown-menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+}
+.nav-bar .dropdown-menu button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: clamp(0.91rem, 0.89rem + 0.1vw, 0.96rem);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  padding: 20px;
+}
+.nav-bar .dropdown-menu button:hover {
+  color: #f24a33;
+}
+
+.games, .api, .other {
+  position: relative;
+}
+.games ul, .api ul, .other ul {
+  position: absolute;
+  list-style: none;
+  width: 110px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in;
+  z-index: 1;
+}
+.games ul li, .api ul li, .other ul li {
+  width: 100%;
+  height: 100%;
+}
+.games ul li a, .api ul li a, .other ul li a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  transition: all 0.2s ease;
+}
+.games ul li a:hover, .api ul li a:hover, .other ul li a:hover {
+  background: #f24a33;
+}
+.games:hover ul, .api:hover ul, .other:hover ul {
+  transform: translateY(0px);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.container {
+  max-width: 90%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.auto-margin {
+  margin: 0 auto;
+  display: block;
+}
+
+body {
+  background-color: #F2F2F2;
+}
+
+.hero {
+  height: 90vh;
+}
+.hero .hero-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  /*   flex-wrap: wrap; */
+}
+.hero .hero-container .hero-desc {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+.hero .hero-container .hero-desc h2 {
+  color: #37474F;
+  font-size: clamp(3.27rem, 2.75rem + 2.56vw, 4.58rem);
+}
+.hero .hero-container .hero-desc p {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  font-size: clamp(1.31rem, 1.24rem + 0.37vw, 1.5rem);
+  color: #666666;
+}
+.hero .hero-container .hero-desc p img {
+  max-width: 70px;
+  width: 100%;
+}
+.hero .hero-container .hero-desc a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+  color: white;
+  background-color: #f24a33;
+  border-radius: 10px;
+  transition: all 0.1s ease;
+}
+.hero .hero-container .hero-desc a:hover {
+  box-shadow: 1px 1px 5px black;
+}
+.hero .hero-container img {
+  max-width: 600px;
+  width: 100%;
+  display: block;
+}
+
+/*# sourceMappingURL=saveResources.css.map */

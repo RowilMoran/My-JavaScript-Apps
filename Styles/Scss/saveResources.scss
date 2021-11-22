@@ -1,0 +1,68 @@
+@use '_variables' as v;
+@use '_reset';
+@use '_mixins' as m;
+@use '_utilities'; 
+@use '_navMenu';
+@use '_layout';
+
+
+//hero
+body {
+    background-color: #F2F2F2;
+}
+
+.hero {
+    height: 90vh;
+    .hero-container {
+        width: 100%;
+        height: 100%;
+        @include m.flexCenter();
+        gap:20px;
+      /*   flex-wrap: wrap; */
+
+        .hero-desc {
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            h2 {
+                color:v.$secondary-color;
+                font-size: v.$step-5;
+            }
+            p {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                gap: 30px;
+                font-size: v.$step-0;
+                color: rgb(102, 102, 102);
+                img {
+                    max-width: 70px;
+                    width: 100%;
+                }
+            }
+            a {
+                display: inline-block;
+                text-decoration: none;
+                font-size: 1.3rem;
+                padding: 10px 20px;
+                color: white;
+                background-color: v.$third-color;
+                border-radius: 10px;
+                transition: all 0.1s ease;
+                &:hover {
+                    box-shadow: 1px 1px 5px black;
+                }
+            }
+        }
+        img {
+            max-width: 600px;
+            width: 100%;
+            display: block;
+        }
+
+    }
+}

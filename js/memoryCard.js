@@ -134,11 +134,9 @@ const cardGenerator = () => {
     });
     //insert at dom depend of the difficulty selected
     if (arraySelected.length === 16) {
-        console.log("im on easy")
         cardsContainer.classList.add("easy");
     } else {
         cardsContainer.classList.add("pro");
-        console.log("im onpro")
     }
 }
 
@@ -149,7 +147,7 @@ const checkCards = e => {
     
     //when a card is clicked, flipped class is added. we are grabbing them.
     const flippedCards = document.querySelectorAll(".flipped");
-    //
+    // grab rotate
     const rotate = document.querySelectorAll(".rotate");
     
     //compare the flipped cards
