@@ -5,7 +5,9 @@
 @use '_navMenu';
 @use '_layout';
 
-
+html {
+    scroll-behavior: smooth;
+}
 //hero
 body {
     background-color: #F2F2F2;
@@ -65,4 +67,210 @@ body {
         }
 
     }
+}
+
+.create-list {
+    height: 50vh;
+    width: 100%;
+    margin: 5rem 0;
+    background-color: #234eb2;
+    @include m.flexColumn();
+    gap: 20px;
+    p{
+        text-align: center;
+        color: #fff;
+        font-size: v.$step-1;
+        max-width: 650px;
+    }
+    form {
+        @include m.flexCenter;
+        input {
+            padding: 15px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            &::placeholder {
+                font-size: 1.1rem;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        button {
+            background-color: rgb(0, 165, 0);
+            border: none;
+            cursor: pointer;
+            width: 45px;
+            height: 100%;
+            border-radius: 0 8px 8px 0;
+            @include m.flexCenter();
+            img {
+                max-width: 30px;
+                display: block;
+                height: 100%;
+            }
+        }
+        
+    }
+}
+
+.card-containers {
+   
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    justify-items: center;
+    align-items: start;
+    gap: 40px;
+    width: 100%;
+    max-width: 100%;
+  
+  
+   
+    .card { 
+        order: -1;
+        max-width: 350px;
+        width: 100%;
+        box-shadow: 2px 3px 18px -6px #000000;
+        border-radius: 10px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.card-body {
+    border-bottom: 1px solid gray;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+   
+
+        .link-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            a {
+             color: #000;
+             font-size: v.$step-1;
+             font-weight: 500;
+             text-align: center;
+             text-decoration: none;
+             overflow: hidden;
+             white-space: nowrap;
+             -o-text-overflow: ellipsis;
+             -ms-text-overflow: ellipsis;
+             text-overflow: ellipsis;
+             width: 260px;
+            }
+            .action-btns {
+                @include m.flexCenter();
+                gap:10px;
+            }
+        }
+        p{
+            overflow: hidden;
+            margin: 20px 0;
+        }
+    
+}
+
+.resource-container {
+    border-bottom: 1px solid gray;
+}
+
+.card-title {
+    background-color: v.$third-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+ 
+    h3 {
+        color: #fff;
+        font-size: v.$step--1;
+        font-weight: 500;
+        padding: 20px 0;
+    }
+    button {
+        background-color: inherit; 
+        img {
+            display: block;
+            max-width: 35px;
+            width: 100%;
+        }
+    }
+}
+
+.card-footer {
+    order: 1;
+    padding: 10px;
+    border-top: 1px solid rgb(207, 207, 207)  ;
+    button {
+        color: gray;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+button {
+    img{
+        pointer-events: none;
+    }
+}
+
+.input-popup {
+    height: 100vh;
+    @include m.flexCenter();
+    background-color: rgba(0, 0, 0, 0.699);
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: all 0.2s ease-in;
+    form {
+        max-width: 300px;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        background-color: v.$primary-color;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4 {
+            font-size: v.$step--1;
+            margin: 10px 0;
+        }
+        input, textArea {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 7px;
+            resize: none;
+            font-family: Arial, Helvetica, sans-serif;
+            &:focus {
+                outline: none;
+        }
+        }
+        button {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            background-color: v.$third-color;
+            border-radius: 7px;
+        }
+    }
+}
+
+.show {
+    opacity: 1;
+    pointer-events: all;
 }

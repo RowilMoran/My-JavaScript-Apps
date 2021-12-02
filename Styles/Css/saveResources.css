@@ -362,6 +362,12 @@ body {
   padding-right: 48px;
 }
 
+/* reset buttons */
+.reset-btn {
+  border: none;
+  cursor: pointer;
+}
+
 header {
   border-bottom: 1px solid #b6b6b6;
 }
@@ -457,6 +463,10 @@ header {
   display: block;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #F2F2F2;
 }
@@ -515,6 +525,212 @@ body {
   max-width: 600px;
   width: 100%;
   display: block;
+}
+
+.create-list {
+  height: 50vh;
+  width: 100%;
+  margin: 5rem 0;
+  background-color: #234eb2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.create-list p {
+  text-align: center;
+  color: #fff;
+  font-size: clamp(1.58rem, 1.46rem + 0.59vw, 1.88rem);
+  max-width: 650px;
+}
+.create-list form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-list form input {
+  padding: 15px;
+  border: none;
+  border-radius: 8px 0 0 8px;
+}
+.create-list form input::placeholder {
+  font-size: 1.1rem;
+}
+.create-list form input:focus {
+  outline: none;
+}
+.create-list form button {
+  background-color: #00a500;
+  border: none;
+  cursor: pointer;
+  width: 45px;
+  height: 100%;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.create-list form button img {
+  max-width: 30px;
+  display: block;
+  height: 100%;
+}
+
+.card-containers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  justify-items: center;
+  align-items: start;
+  gap: 40px;
+  width: 100%;
+  max-width: 100%;
+}
+.card-containers .card {
+  order: -1;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 2px 3px 18px -6px #000000;
+  border-radius: 10px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  border-bottom: 1px solid gray;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.card-body .link-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.card-body .link-container a {
+  color: #000;
+  font-size: clamp(1.58rem, 1.46rem + 0.59vw, 1.88rem);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 260px;
+}
+.card-body .link-container .action-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.card-body p {
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.resource-container {
+  border-bottom: 1px solid gray;
+}
+
+.card-title {
+  background-color: #f24a33;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+.card-title h3 {
+  color: #fff;
+  font-size: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
+  font-weight: 500;
+  padding: 20px 0;
+}
+.card-title button {
+  background-color: inherit;
+}
+.card-title button img {
+  display: block;
+  max-width: 35px;
+  width: 100%;
+}
+
+.card-footer {
+  order: 1;
+  padding: 10px;
+  border-top: 1px solid #cfcfcf;
+}
+.card-footer button {
+  color: gray;
+  border: none;
+  cursor: pointer;
+}
+
+button img {
+  pointer-events: none;
+}
+
+.input-popup {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.699);
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: all 0.2s ease-in;
+}
+.input-popup form {
+  max-width: 300px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #F7DF1E;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-popup form h4 {
+  font-size: clamp(1.09rem, 1.05rem + 0.21vw, 1.2rem);
+  margin: 10px 0;
+}
+.input-popup form input, .input-popup form textArea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 7px;
+  resize: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.input-popup form input:focus, .input-popup form textArea:focus {
+  outline: none;
+}
+.input-popup form button {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: #f24a33;
+  border-radius: 7px;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /*# sourceMappingURL=saveResources.css.map */

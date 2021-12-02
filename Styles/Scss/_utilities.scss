@@ -115,3 +115,9 @@
         padding-right: $i * 8px;
     }
 }
+
+/* reset buttons */
+.reset-btn {
+    border: none;
+    cursor: pointer;
+}

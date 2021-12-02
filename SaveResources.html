@@ -44,12 +44,39 @@
             <div class="hero-desc">
                 <h2>Save and Orginize your Resources</h2>
                 <p><img src="/Resources/saveYourResources/hero-desc-img.png" alt="pandora box">Helpfull Resources come from anywhere, don’t loose them, save them.</p>
-                <a href="#">Start Now!</a>
+                <a href="#title-form">Start Now!</a>
             </div>
             <img src="/Resources/saveYourResources/hero.png" alt="hero-img">
         </div>     
     </section>
 
-    <script src="/js/saveResources.js"></script>
+    <section class="create-list">
+        <p>
+            You can create your own list of resources
+            but you have plenty resources categorized already
+        <p>
+        <form class="newCardForm"> 
+            <input type="text" placeholder="List Title" id="title-form" maxlength="24">
+            <button type="submit" class="create-btn"><img src="/Resources/saveYourResources/icons/plus.svg" alt="add"></button>
+        </form>
+    </section>
+
+    <section class="card-resources container">
+        <div class="card-containers"></div>
+    </section>
+
+    <!-- new resource generated -->
+
+    <section class="input-popup">
+        <form class= "resource-form">
+            <h4>Add New Resource of "<span class="new-resource-title"></span>"</h4>
+            <input type="text" placeholder="Name" id="resource-name">
+            <input type="text" placeholder="Link" id="resource-link">
+            <textarea type="text" placeholder="Description of the Resource" cols="30" rows="3" id="resource-desc" maxlength="100"></textarea>
+            <button type="submit" id="createBtn">Create!</button>
+        </form>
+    </section>
+
+    <script src="/js/newSaveResources.js"></script>
 </body>
 </html>
