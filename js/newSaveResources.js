@@ -428,7 +428,6 @@ function getFromLocalStorage() {
 // initially get everything from localStorage
 document.addEventListener("DOMContentLoaded", e => {
     getFromLocalStorage();
-    addToLocalStorage(cards)
 });
 
 
