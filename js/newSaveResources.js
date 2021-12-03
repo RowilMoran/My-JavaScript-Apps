@@ -416,6 +416,7 @@ function addToLocalStorage(array) {
 
 function getFromLocalStorage() {
     const reference = localStorage.getItem('cards');
+    addToLocalStorage(cards);
     // if reference exists
     if (reference) {
         // converts back to array and store it in todos array
@@ -427,7 +428,6 @@ function getFromLocalStorage() {
 
 // initially get everything from localStorage
 document.addEventListener("DOMContentLoaded", e => {
-    addToLocalStorage(cards);
     getFromLocalStorage();
 });
 
