@@ -143,13 +143,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
-   
-
         .link-container {
             display: flex;
             justify-content: space-around;
             align-items: center;
             a {
+             display: inline-block;
              color: #000;
              font-size: v.$step-1;
              font-weight: 500;

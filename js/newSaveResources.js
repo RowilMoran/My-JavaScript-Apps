@@ -15,64 +15,202 @@ const inputPopUp = document.querySelector(".input-popup");
 
 
 //this array will store all the cards with the data.
-let cards = [];
 
-//event listener on forms, user add new card title and new resource to a new card.
-document.addEventListener("submit", e => {
-    //this event generate new card.
-    if (e.target.matches(".newCardForm")) {
-        e.preventDefault();
-        addNewCard(titleInput.value);
+let cards = [
+    {
+        card: {
+            title: "Free Stock Photos", 
+            id: 134978,
+            resources: {
+                "Pexels": {
+                    name: "Pexels",
+                    link: "https://www.pexels.com/",
+                    desc: "The best free stock photos, royalty free images & videos shared by creators."
+                },
+                "Reshot": {
+                    name: "Reshot",
+                    link: "https://www.reshot.com/",
+                    desc: "Design freely with instant downloads and commercial licenses. No cost. No attribution. No worries."
+                },
+                "Freepik": {
+                    name: "Freepik",
+                    link: "https://www.freepik.com/",
+                    desc: "Graphic resources for everyone"
+                },
+                "Pixabay": {
+                    name: "Pixabay",
+                    link: "https://pixabay.com/",
+                    desc: "Stunning free images & royalty free stock"
+                },
+                "Picspree": {
+                    name: "Picspree",
+                    link: "https://picspree.com/en",
+                    desc: "Discover and download beautiful royalty free images, stock photos, illustrations, and vectors"
+                }
+            }
+        }
+    },
+    {
+        card: {
+            title: "Improve Skills as a Developer", 
+            id: 1348978,
+            resources: {
+                "Coderbyte": {
+                    name: "Coderbyte",
+                    link: "https://coderbyte.com/",
+                    desc: "Challenge yourself to code and interview better."
+                },
+                "Frontend Practice": {
+                    name: "Frontend Practice",
+                    link: "https://www.frontendpractice.com/",
+                    desc: "Take your frontend skills to the next level by recreating real websites."
+                },
+                "100 days Css": {
+                    name: "100 days Css",
+                    link: "https://100dayscss.com/how-to/",
+                    desc: "The homepage shows every day a different challenge which you can complete."
+                },
+                "cssbattle": {
+                    name: "cssbattle",
+                    link: "https://cssbattle.dev/",
+                    desc: "CSS code-golfing game is here! Use your CSS skills to replicate targets with smallest possible code."
+                },
+                "Codewell": {
+                    name: "Codewell",
+                    link: "https://www.codewell.cc/",
+                    desc: "Improve your HTML and CSS skills by practicing on real design templates."
+                }
+            }
+        }
+    },
+    {
+        card: {
+            title: "Css Code Generator", 
+            id: 34934178,
+            resources: {
+                "Grid layoutit": {
+                    name: "Grid layoutit",
+                    link: "https://grid.layoutit.com/",
+                    desc: "Generate the layout of your site"
+                },
+                "Button Generator": {
+                    name: "Button Generator",
+                    link: "https://cssbuttongenerator.com/",
+                    desc: "Generate your buttons with no code."
+                },
+                "Fancy Border Generator": {
+                    name: "Fancy Border Generator",
+                    link: "https://9elements.github.io/fancy-border-radius/#52.82.65.30--.",
+                    desc: "Don't be boring, get cool borders easily."
+                },
+                "cssbattle": {
+                    name: "Key Frames (Animation)",
+                    link: "https://keyframes.app/",
+                    desc: "Dead simple visual tools to help you generate CSS for your projects."
+                },
+                "Clip Path Maker": {
+                    name: "Clip Path Maker",
+                    link: "https://bennettfeely.com/clippy/",
+                    desc: "Improve your HTML and CSS skills by practicing on real design templates."
+                }
+            }
+        }
+    },
+    {
+        card: {
+            title: "Lack of Inspiration?", 
+            id: 17416747,
+            resources: {
+                "Dribble": {
+                    name: "Dribble",
+                    link: "https://dribbble.com/",
+                    desc: "Dribbble is the world’s leading community for creatives to share, grow, and get hired."
+                },
+                "Muzli": {
+                    name: "Muzli",
+                    link: "https://muz.li/?ref=designresourc.es",
+                    desc: "The best design inspiration - expertly curated for you."
+                },
+                "Mobin": {
+                    name: "Mobin",
+                    link: "https://mobbin.design/browse/ios/apps",
+                    desc: "Save hours of UI & UX research with our library of 50,000+ fully searchable mobile app screenshots."
+                },
+                "Ui Sources": {
+                    name: "Ui Sources",
+                    link: "https://www.uisources.com/?affiliate_id=733443187",
+                    desc: "Interactions from the best designed and top grossing apps"
+                },
+                "Nicely Done": {
+                    name: "Nicely Done",
+                    link: "https://nicelydone.club/?ref=designresourc.es",
+                    desc: "The largest screen examples & user flows library from web applications"
+                }
+            }
+        }
     }
-    //this event generate new resource on card.
-    if (e.target.matches(".resource-form")) {
-        e.preventDefault();
-        addNewResource(e,resourceName.value,link.value, resourceDesc.value);
-        inputPopUp.classList.remove("show");
-    }
-});
+];
 
-
-//function to add new card
-function addNewCard(titleCard) {
-    if (titleCard !== "") {
-        let newCard  ={card:{
-            title: titleCard,
+console.log(cards)
+/* 
+[
+    {"card":
+    {"title":"nuevo resource","id":1638476701002,"resources":{"\"Name 1\"":{"name":"Name 1","link":"link 1","desc":"desc 1"},"\"Name 2\"":{"name":"Name 2","link":"link 2","desc":"desc 2"},"\"Name 3\"":{"name":"Name 3","link":"link 3","desc":"desc 3"}}}}]
+    */
+   //event listener on forms, user add new card title and new resource to a new card.
+   document.addEventListener("submit", e => {
+       //this event generate new card.
+       if (e.target.matches(".newCardForm")) {
+           e.preventDefault();
+           addNewCard(titleInput.value);
+        }
+        //this event generate new resource on card.
+        if (e.target.matches(".resource-form")) {
+            e.preventDefault();
+            addNewResource(e,resourceName.value,link.value, resourceDesc.value);
+            inputPopUp.classList.remove("show");
+        }
+    });
+    
+    //function to add new card
+ function addNewCard(titleCard) {
+        if (titleCard !== "") {
+            let newCard  ={card:{
+                title: titleCard,
             id: Date.now(),
             resources:{}
         } } 
         
         cards.push(newCard);
         addToLocalStorage(cards);
-            titleInput.value = "";
-            renderResource(cards)
-        }
+        titleInput.value = "";
+    }
 }
 
 //function add new resource to card
 function addNewResource(e,name,link, desc, id) {
-
-        if (link !== "" && desc !== "") {
-            const innerTitle = e.target.firstElementChild.firstElementChild.innerText;
-            let resource = {name:name, link: link, desc: desc, id: id };
-            cards.forEach(element => {
-                if(innerTitle == element.card.title) {
-                    element.card.resources[`"${name}"`] = resource;
-                    addToLocalStorage(cards);
-                }
-           });
-        }
-    }
-
     
+    if (link !== "" && desc !== "") {
+        const innerTitle = e.target.firstElementChild.firstElementChild.innerText;
+        let resource = {name:name, link: link, desc: desc, id: id };
+        cards.forEach(element => {
+            if(innerTitle == element.card.title) {
+                element.card.resources[`"${name}"`] = resource;
+                addToLocalStorage(cards);
+            }
+        });
+    }
+}
+
+
 
 //render new card 
 function renderNewCard(array) {
     cardsContainers.innerHTML = "";
-   
-   
+    
+    
     array.forEach(el => {
-
+        
         const card = document.createElement("div");
         const titleContainer = document.createElement("div");
         const cardBody = document.createElement("div");
@@ -112,13 +250,14 @@ function renderNewCard(array) {
     }); 
 }
 
+
 //render resources in corresponding card
 function renderResource(array) {
     //element where the body of the card (resources) will be placed
-const bodyCardContainer = document.querySelectorAll(".card-body");
-  bodyCardContainer.forEach(e => {
-     e.innerText = ""
-  })
+    const bodyCardContainer = document.querySelectorAll(".card-body");
+    bodyCardContainer.forEach(e => {
+        e.innerText = ""
+    })
     const cardTitle = document.querySelectorAll(".card-title h3");
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < cardTitle.length; j++) {
@@ -135,30 +274,31 @@ const bodyCardContainer = document.querySelectorAll(".card-body");
                     const copyImg = document.createElement("img");
                     const trashImg = document.createElement("img");
                     const description = document.createElement("p");
-
+                    
                     //resource Container
                     resourceContainer.classList.add("resource-container");
                     resourceContainer.setAttribute("data-name", resourcesInCard[e].name)
-
+                    
                     //link container 
                     linkContainer.classList.add("link-container");
                     resourceContainer.appendChild(linkContainer);
-
+                    
                     //resource Link 
                     resourceLink.setAttribute("href", resourcesInCard[e].link);
+                    resourceLink.setAttribute("target", "_blank");
                     resourceLink.innerText = resourcesInCard[e].name;
                     linkContainer.appendChild(resourceLink);
-
-                     // action buttons container
+                    
+                    // action buttons container
                     actionBtnContainer.classList.add("action-btns");
                     linkContainer.appendChild(actionBtnContainer);
-
+                    
                     //add img to buttons
                     copyImg.setAttribute("src", "/Resources/saveYourResources/icons/copyToClickboard.svg");
                     trashImg.setAttribute("src", "/Resources/saveYourResources/icons/trash-can.svg");
                     copyBtn.appendChild(copyImg);
                     trashBtn.appendChild(trashImg);
-
+                    
                     //action buttons
                     copyBtn.classList.add("reset-btn");
                     copyBtn.classList.add("copy-btn");
@@ -166,25 +306,24 @@ const bodyCardContainer = document.querySelectorAll(".card-body");
                     trashBtn.classList.add("trash-btn");
                     actionBtnContainer.appendChild(copyBtn);
                     actionBtnContainer.appendChild(trashBtn);
-
+                    
                     //resource description
                     description.innerText = (resourcesInCard[e].desc);
                     resourceContainer.appendChild(description);
-
+                    
                     //insert resource
                     bodyCard.appendChild(resourceContainer);
-
+                    
                 });
             }
         }
     }    
 }
 
-
 //Generate background colors
 function differentBackgrounds(div) {
     const cardTitle = document.querySelectorAll(".card-title");
-
+    
     if (cardTitle.length > 0)  {
         let lastCard=cardTitle[cardTitle.length-1];
         let background = window.getComputedStyle(lastCard).backgroundColor;
@@ -195,11 +334,11 @@ function differentBackgrounds(div) {
         }
         
         if(background === newBackground.red) {
-           div.style.backgroundColor = newBackground.blue;
+            div.style.backgroundColor = newBackground.blue;
         } else if (background === newBackground.blue) {
-           div.style.backgroundColor = newBackground.gray;
+            div.style.backgroundColor = newBackground.gray;
         } else {
-           div.style.backgroundColor=newBackground.red
+            div.style.backgroundColor=newBackground.red;
         } 
     }
 }
@@ -221,7 +360,7 @@ document.addEventListener("click", e => {
     if (e.target.matches(".copy-btn")) {
         copyToClipBoard(e);
     }
-
+    
     //delete resource
     if (e.target.matches(".trash-btn")) {
         deleteResource(e.target.parentElement.parentElement.parentElement)
@@ -231,13 +370,14 @@ document.addEventListener("click", e => {
 //function copy to clikboard
 function copyToClipBoard(e) {
     
-        const copyLink = e.target.parentElement.parentElement.children[0].getAttribute("href");
-      
-        console.log(copyLink);
-        navigator.clipboard.writeText(copyLink);
-        alert("Copied the text: " + copyLink);
+    const copyLink = e.target.parentElement.parentElement.children[0].getAttribute("href");
+    
+    console.log(copyLink);
+    navigator.clipboard.writeText(copyLink);
+    alert("Copied the text: " + copyLink);
     
 }
+
 
 //delete list function
 function deleteList(clickedCard) {
@@ -258,15 +398,13 @@ function deleteResource(selectedResource) {
     if (deleteConfirmation) {
         cards.forEach(el=> {
             const resources = el.card.resources;
-           for (let i in resources) {
-               if (resources[i].name ==  selectedResource.getAttribute("data-name")) {
-                   delete resources[i];
-                   addToLocalStorage(cards)
-               }
-           }
-        });
-    
-            
+            for (let i in resources) {
+                if (resources[i].name ==  selectedResource.getAttribute("data-name")) {
+                    delete resources[i];
+                    addToLocalStorage(cards)
+                }
+            }
+        });       
     }
 } 
 
@@ -286,14 +424,20 @@ function getFromLocalStorage() {
     const reference = localStorage.getItem('cards');
     // if reference exists
     if (reference) {
-      // converts back to array and store it in todos array
-      cards = JSON.parse(reference);
-      renderNewCard(cards);
-      renderResource(cards);
+        // converts back to array and store it in todos array
+        cards = JSON.parse(reference);
+        renderNewCard(cards);
+        renderResource(cards);
     }
-  }
-  
-  // initially get everything from localStorage
-  document.addEventListener("DOMContentLoaded", e => {
-      getFromLocalStorage();
-  })
+}
+
+// initially get everything from localStorage
+document.addEventListener("DOMContentLoaded", e => {
+    getFromLocalStorage();
+    addToLocalStorage(cards)
+});
+
+
+
+
+
