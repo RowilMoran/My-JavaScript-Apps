@@ -151,12 +151,6 @@ let cards = [
     }
 ];
 
-console.log(cards)
-/* 
-[
-    {"card":
-    {"title":"nuevo resource","id":1638476701002,"resources":{"\"Name 1\"":{"name":"Name 1","link":"link 1","desc":"desc 1"},"\"Name 2\"":{"name":"Name 2","link":"link 2","desc":"desc 2"},"\"Name 3\"":{"name":"Name 3","link":"link 3","desc":"desc 3"}}}}]
-    */
    //event listener on forms, user add new card title and new resource to a new card.
    document.addEventListener("submit", e => {
        //this event generate new card.
