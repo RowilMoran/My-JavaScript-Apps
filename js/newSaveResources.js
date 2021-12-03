@@ -7,7 +7,7 @@ const titleInput = document.getElementById("title-form");
 //input name of the new resource
 const resourceName = document.getElementById("resource-name");
 //input of link of new resource
-const link =document.getElementById("resource-link");
+const resourceLink =document.getElementById("resource-link");
 //input of description of new resource
 const resourceDesc = document.getElementById("resource-desc");
 //popup
@@ -161,7 +161,7 @@ let cards = [
         //this event generate new resource on card.
         if (e.target.matches(".resource-form")) {
             e.preventDefault();
-            addNewResource(e,resourceName.value,link.value, resourceDesc.value);
+            addNewResource(e,resourceName.value,resourceLink.value, resourceDesc.value);
             inputPopUp.classList.remove("show");
         }
     });
@@ -184,7 +184,7 @@ let cards = [
 //function add new resource to card
 function addNewResource(e,name,link, desc, id) {
     
-    if (link !== "" && desc !== "") {
+    if (link !== "" && name!== "") {
         const innerTitle = e.target.firstElementChild.firstElementChild.innerText;
         let resource = {name:name, link: link, desc: desc, id: id };
         cards.forEach(element => {
@@ -193,6 +193,9 @@ function addNewResource(e,name,link, desc, id) {
                 addToLocalStorage(cards);
             }
         });
+        resourceName.value = "";
+        resourceLink.value = "";
+        resourceDesc.value ="";
     }
 }
 
