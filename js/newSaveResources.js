@@ -12,6 +12,7 @@ const resourceLink =document.getElementById("resource-link");
 const resourceDesc = document.getElementById("resource-desc");
 //popup
 const inputPopUp = document.querySelector(".input-popup");
+//
 
 
 //this array will store all the cards with the data.
@@ -165,19 +166,52 @@ let cards = [
             inputPopUp.classList.remove("show");
         }
     });
+
+
+    //check coincidences in cards
+    function checkAvailability(arr, val) {
+        return arr.some(function(arrVal) {
+          return val === arrVal;
+        });
+      }
+
+      //save all titles cards in an array
+      function arrayConverter(obj) {
+        let titles = [];
+        for (let i in obj) {
+            titles.push(obj[i].card.title);
+        }
+        return titles;
+      } 
+
+    
     
     //function to add new card
  function addNewCard(titleCard) {
-        if (titleCard !== "") {
-            let newCard  ={card:{
-                title: titleCard,
-            id: Date.now(),
-            resources:{}
-        } } 
-        
-        cards.push(newCard);
-        addToLocalStorage(cards);
-        titleInput.value = "";
+     const errorMessage = document.querySelector(".empty-error");
+     const coincidenceError = document.querySelector(".coincidence-error");
+     const titlesInArray = arrayConverter(cards);
+     if (titleCard === "") {
+         errorMessage.classList.add("appear");
+        } else if( checkAvailability(titlesInArray, titleCard)) {
+            coincidenceError.classList.add("appear");
+            errorMessage.classList.remove("appear");
+            titleInput.value = "";  
+        } else {
+            let newCard  = 
+            {
+                card:{
+                    title: titleCard,
+                    id: Date.now(),
+                    resources:{}
+                } 
+            } 
+            
+            cards.push(newCard);
+            addToLocalStorage(cards);
+            titleInput.value = "";  
+            errorMessage.classList.remove("appear");
+            coincidenceError.classList.remove("appear");
     }
 }
 
