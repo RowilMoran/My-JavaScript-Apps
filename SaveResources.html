@@ -71,14 +71,15 @@
 
     <section class="input-popup">
         <form class= "resource-form">
-            <h4>Add New Resource of "<span class="new-resource-title"></span>"</h4>
-            <input type="text" placeholder="Name" id="resource-name">
-            <input type="text" placeholder="Link" id="resource-link">
+            <h4>Add New Resource to "<span class="new-resource-title"></span>"</h4>
+            <input type="text" placeholder="Name" id="resource-name" required>
+            <input type="text" placeholder="Link" id="resource-link" required>
             <textarea type="text" placeholder="Description of the Resource" cols="30" rows="3" id="resource-desc" maxlength="100"></textarea>
             <button type="submit" id="createBtn">Create!</button>
+            <button class="close-btn"  id="close"><img src="Resources/saveYourResources/icons/close.svg" alt="close"></button>
         </form>
     </section>
 
-    <script src="js/newSaveResources.js"></script>
+    <script src="js/saveResources.js"></script>
 </body>
 </html>

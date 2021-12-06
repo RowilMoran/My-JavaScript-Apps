@@ -112,10 +112,10 @@ body {
                 height: 100%;
             }
         }
-        .empty-error{
+        .empty-error, .coincidence-error{
             font-family: Arial, Helvetica, sans-serif;
             position: absolute;
-            bottom: -92%;
+            bottom: -94%;
             left: 4%;
             font-size: 1.2rem;
             border-radius: 0 0 10px 10px;
@@ -130,25 +130,7 @@ body {
                 transform: translateY(0);
                 opacity: 1;
             }
-        }
-        .coincidence-error {
-            font-family: Arial, Helvetica, sans-serif;
-            position: absolute;
-            bottom: -92%;
-            left: 4%;
-            font-size: 1.2rem;
-            border-radius: 0 0 10px 10px;
-            padding: 10px;
-            color: #fff;
-            background-color: v.$third-color;
-            transform: translateY(-5px);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.2s ease-in;
-            &.appear {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        
         }
     }
 }
@@ -178,38 +160,69 @@ body {
 }
 
 .card-body {
-    border-bottom: 1px solid gray;
-    padding: 20px 10px;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.171);
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    overflow: hidden;
+    .resource-container {
+        padding: 20px 20px;
+        width: 100%;
+        height: 100%;
         .link-container {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            a {
-             display: inline-block;
-             color: #000;
-             font-size: v.$step-1;
-             font-weight: 500;
-             text-align: center;
-             text-decoration: none;
-             overflow: hidden;
-             white-space: nowrap;
-             -o-text-overflow: ellipsis;
-             -ms-text-overflow: ellipsis;
-             text-overflow: ellipsis;
-             width: 260px;
+            .name-icon-link {
+                display: flex;
+                justify-content: flex-start;
+                width: 260px;
+                gap:10px;
+                a {
+                 opacity: 0;
+                 pointer-events: none;
+                 display: inline-block;
+                 text-decoration: none;
+                 transform: translateX(10px);
+                 transition: all 0.125s ease-in;
+                 img {
+                     display: block;
+                     width: 30px;
+                    }
+                }
+                h4 {
+                    width: 200px;
+                    font-size: v.$step-1;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    -o-text-overflow: ellipsis;
+                    -ms-text-overflow: ellipsis;
+                    text-overflow: ellipsis;
+                }
             }
             .action-btns {
                 @include m.flexCenter();
                 gap:10px;
+                button {
+                    background-color: inherit;
+                }
             }
         }
         p{
             overflow: hidden;
             margin: 20px 0;
         }
+        &:hover {
+            transition: all 0.150s ease-in;
+            transform: translateY(-5px);
+            background-color:rgb(255, 255, 255);
+            border-top: 1px solid gray;
+        }
+        &:hover .name-icon-link a {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(0);
+        }
+    }
     
 }
 
@@ -272,6 +285,7 @@ button {
     form {
         max-width: 300px;
         width: 100%;
+        position: relative;
         padding: 20px;
         text-align: center;
         background-color: v.$primary-color;
@@ -303,8 +317,20 @@ button {
             text-decoration: none;
             color: #fff;
             padding: 10px 20px;
-            background-color: v.$third-color;
+            background-color:#234eb2;
             border-radius: 7px;
+        }
+        .close-btn {
+            position: absolute;
+            top: -5px;
+            right: 4px;
+            border: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background-color: inherit;
+            cursor: pointer;
         }
     }
 }
@@ -312,4 +338,5 @@ button {
 .show {
     opacity: 1;
     pointer-events: all;
+ 
 }

@@ -579,10 +579,10 @@ body {
   display: block;
   height: 100%;
 }
-.create-list form .empty-error {
+.create-list form .empty-error, .create-list form .coincidence-error {
   font-family: Arial, Helvetica, sans-serif;
   position: absolute;
-  bottom: -92%;
+  bottom: -94%;
   left: 4%;
   font-size: 1.2rem;
   border-radius: 0 0 10px 10px;
@@ -594,26 +594,7 @@ body {
   pointer-events: none;
   transition: all 0.2s ease-in;
 }
-.create-list form .empty-error.appear {
-  transform: translateY(0);
-  opacity: 1;
-}
-.create-list form .coincidence-error {
-  font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  bottom: -92%;
-  left: 4%;
-  font-size: 1.2rem;
-  border-radius: 0 0 10px 10px;
-  padding: 10px;
-  color: #fff;
-  background-color: #f24a33;
-  transform: translateY(-5px);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.2s ease-in;
-}
-.create-list form .coincidence-error.appear {
+.create-list form .empty-error.appear, .create-list form .coincidence-error.appear {
   transform: translateY(0);
   opacity: 1;
 }
@@ -639,40 +620,71 @@ body {
 }
 
 .card-body {
-  border-bottom: 1px solid gray;
-  padding: 20px 10px;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.171);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  overflow: hidden;
 }
-.card-body .link-container {
+.card-body .resource-container {
+  padding: 20px 20px;
+  width: 100%;
+  height: 100%;
+}
+.card-body .resource-container .link-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.card-body .link-container a {
+.card-body .resource-container .link-container .name-icon-link {
+  display: flex;
+  justify-content: flex-start;
+  width: 260px;
+  gap: 10px;
+}
+.card-body .resource-container .link-container .name-icon-link a {
+  opacity: 0;
+  pointer-events: none;
   display: inline-block;
-  color: #000;
-  font-size: clamp(1.58rem, 1.46rem + 0.59vw, 1.88rem);
-  font-weight: 500;
-  text-align: center;
   text-decoration: none;
+  transform: translateX(10px);
+  transition: all 0.125s ease-in;
+}
+.card-body .resource-container .link-container .name-icon-link a img {
+  display: block;
+  width: 30px;
+}
+.card-body .resource-container .link-container .name-icon-link h4 {
+  width: 200px;
+  font-size: clamp(1.58rem, 1.46rem + 0.59vw, 1.88rem);
   overflow: hidden;
   white-space: nowrap;
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
-  width: 260px;
 }
-.card-body .link-container .action-btns {
+.card-body .resource-container .link-container .action-btns {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.card-body p {
+.card-body .resource-container .link-container .action-btns button {
+  background-color: inherit;
+}
+.card-body .resource-container p {
   overflow: hidden;
   margin: 20px 0;
+}
+.card-body .resource-container:hover {
+  transition: all 0.15s ease-in;
+  transform: translateY(-5px);
+  background-color: white;
+  border-top: 1px solid gray;
+}
+.card-body .resource-container:hover .name-icon-link a {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateX(0);
 }
 
 .resource-container {
@@ -734,6 +746,7 @@ button img {
 .input-popup form {
   max-width: 300px;
   width: 100%;
+  position: relative;
   padding: 20px;
   text-align: center;
   background-color: #F7DF1E;
@@ -766,8 +779,20 @@ button img {
   text-decoration: none;
   color: #fff;
   padding: 10px 20px;
-  background-color: #f24a33;
+  background-color: #234eb2;
   border-radius: 7px;
+}
+.input-popup form .close-btn {
+  position: absolute;
+  top: -5px;
+  right: 4px;
+  border: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: inherit;
+  cursor: pointer;
 }
 
 .show {
