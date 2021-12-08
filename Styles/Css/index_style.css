@@ -1317,7 +1317,7 @@ header {
 .games ul li a:hover, .api ul li a:hover, .other ul li a:hover {
   background: #f24a33;
 }
-.games:active ul, .api:active ul, .other:active ul {
+.games:hover ul, .api:hover ul, .other:hover ul {
   transform: translateY(0px);
   opacity: 1;
   pointer-events: all;

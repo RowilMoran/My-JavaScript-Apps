@@ -101,7 +101,7 @@ header {
         }      
     }
 
-    &:active ul {
+    &:hover ul {
         transform: translateY(0px);
         opacity: 1;
         pointer-events: all;
