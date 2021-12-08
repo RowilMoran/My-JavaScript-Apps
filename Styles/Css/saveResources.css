@@ -1505,7 +1505,7 @@ body {
   position: relative;
 }
 .create-list form input {
-  width: 270px;
+  width: 230px;
   padding: 15px;
   border: none;
   border-radius: 8px 0 0 8px;
@@ -1554,7 +1554,7 @@ body {
 
 .card-containers {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
   justify-items: center;
   align-items: start;
   gap: 40px;
@@ -1756,7 +1756,11 @@ button img {
 @media only screen and (max-width: 750px) {
   .hero {
     padding-top: 20vh;
-    min-height: 110vh;
+    min-height: 150vh;
+  }
+
+  .card-containers {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 
