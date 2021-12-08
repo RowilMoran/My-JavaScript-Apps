@@ -221,10 +221,11 @@ let cards = [
 function addNewResource(e,name,link, desc, id) {
     
     if (link !== "" && name!== "") {
-        const innerTitle = e.target.firstElementChild.firstElementChild.innerText;
+        const innerTitle =e.target.querySelector("h4 .new-resource-title");
+        console.log(innerTitle.innerText)
         let resource = {name:name, link: link, desc: desc, id: id };
         cards.forEach(element => {
-            if(innerTitle == element.card.title) {
+            if(innerTitle.innerText == element.card.title) {
                 element.card.resources[`"${name}"`] = resource;
                 addToLocalStorage(cards);
             }
