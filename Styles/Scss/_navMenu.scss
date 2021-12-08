@@ -101,7 +101,7 @@ header {
         }      
     }
 
-    &:hover ul {
+    &:active ul {
         transform: translateY(0px);
         opacity: 1;
         pointer-events: all;
@@ -112,7 +112,7 @@ header {
     display: none;
    height: 15vh;
    z-index: 100;
-   background-color: #fff;
+   background-color: rgb(255, 255, 255);
     .hamburger-box {
         pointer-events: none;
     }
@@ -151,6 +151,13 @@ header {
         .games,.api,.other {
             ul {
                 width: 100%;
+                li {
+                   a {
+                       width: 100%;
+                       display: block;
+
+                   }
+                }
             }
             button {
                 color: #fff;
@@ -160,16 +167,8 @@ header {
                 padding: 10px;
 
             }
-            &:hover ul {
-                transform: none;
-                opacity: none;
-                pointer-events: none;
-            }
-            &:active ul {
-                transform: translateY(0px);
-                opacity: 1;
-                pointer-events: all;
-            }
+        
+        
         }
     }
     

@@ -1317,7 +1317,7 @@ header {
 .games ul li a:hover, .api ul li a:hover, .other ul li a:hover {
   background: #f24a33;
 }
-.games:hover ul, .api:hover ul, .other:hover ul {
+.games:active ul, .api:active ul, .other:active ul {
   transform: translateY(0px);
   opacity: 1;
   pointer-events: all;
@@ -1327,7 +1327,7 @@ header {
   display: none;
   height: 15vh;
   z-index: 100;
-  background-color: #fff;
+  background-color: white;
 }
 .hamburger .hamburger-box {
   pointer-events: none;
@@ -1366,22 +1366,16 @@ header {
 .mobile-menu .dropdown-menu .games ul, .mobile-menu .dropdown-menu .api ul, .mobile-menu .dropdown-menu .other ul {
   width: 100%;
 }
+.mobile-menu .dropdown-menu .games ul li a, .mobile-menu .dropdown-menu .api ul li a, .mobile-menu .dropdown-menu .other ul li a {
+  width: 100%;
+  display: block;
+}
 .mobile-menu .dropdown-menu .games button, .mobile-menu .dropdown-menu .api button, .mobile-menu .dropdown-menu .other button {
   color: #fff;
   background-color: inherit;
   border: none;
   font-size: clamp(1.89rem, 1.71rem + 0.89vw, 2.34rem);
   padding: 10px;
-}
-.mobile-menu .dropdown-menu .games:hover ul, .mobile-menu .dropdown-menu .api:hover ul, .mobile-menu .dropdown-menu .other:hover ul {
-  transform: none;
-  opacity: none;
-  pointer-events: none;
-}
-.mobile-menu .dropdown-menu .games:active ul, .mobile-menu .dropdown-menu .api:active ul, .mobile-menu .dropdown-menu .other:active ul {
-  transform: translateY(0px);
-  opacity: 1;
-  pointer-events: all;
 }
 
 @media only screen and (max-width: 734px) {
