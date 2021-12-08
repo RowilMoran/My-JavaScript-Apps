@@ -15,11 +15,11 @@ body {
 
 .hero {
     height: 90vh;
+    min-height: 600px;
     .hero-container {
         width: 100%;
         height: 100%;
         @include m.flexCenter();
-        flex-wrap: wrap;
         gap:20px;
       /*   flex-wrap: wrap; */
 
@@ -72,6 +72,7 @@ body {
 
 .create-list {
     height: 50vh;
+    min-height: 309px;
     width: 100%;
     margin: 5rem 0;
     background-color: #234eb2;
@@ -344,8 +345,14 @@ button {
 
 @media only screen and (max-width:750px){
     .hero {
-        padding-top: 20vh;
-        min-height: 150vh;
+        padding-top: 22vh;
+        min-height: 500px;
+        .hero-container {
+            flex-direction: column;
+           .hero-img {
+                display: none;
+            }
+        }
     }
 
     .card-containers {
