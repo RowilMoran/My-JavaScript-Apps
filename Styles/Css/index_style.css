@@ -1231,6 +1231,7 @@ header {
   border-bottom: 1px solid #b6b6b6;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .nav-bar {
@@ -1345,7 +1346,7 @@ header {
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 0;
+  top: 15vh;
   bottom: 0;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.788);
@@ -1359,15 +1360,21 @@ header {
 .mobile-menu .dropdown-menu {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 70px;
 }
 .mobile-menu .dropdown-menu .games button, .mobile-menu .dropdown-menu .api button, .mobile-menu .dropdown-menu .other button {
   color: #fff;
   background-color: inherit;
   border: none;
   font-size: clamp(1.89rem, 1.71rem + 0.89vw, 2.34rem);
+  padding: 10px;
 }
-.mobile-menu .dropdown-menu .games:checked ul, .mobile-menu .dropdown-menu .api:checked ul, .mobile-menu .dropdown-menu .other:checked ul {
+.mobile-menu .dropdown-menu .games:hover ul, .mobile-menu .dropdown-menu .api:hover ul, .mobile-menu .dropdown-menu .other:hover ul {
+  transform: none;
+  opacity: none;
+  pointer-events: none;
+}
+.mobile-menu .dropdown-menu .games:active ul, .mobile-menu .dropdown-menu .api:active ul, .mobile-menu .dropdown-menu .other:active ul {
   transform: translateY(0px);
   opacity: 1;
   pointer-events: all;
@@ -1510,6 +1517,7 @@ header {
     place-items: center;
     padding: 20px 0;
     height: auto;
+    padding-top: 15vh;
   }
   .hero img {
     display: none;
