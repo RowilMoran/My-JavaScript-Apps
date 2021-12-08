@@ -15,7 +15,7 @@ const inputPopUp = document.querySelector(".input-popup");
 //
 
 
-//this array will store all the cards with the data.
+//this array will store all the cards with the data.(it has some default resources loaded)
 
 let cards = [
     {
@@ -200,6 +200,7 @@ let cards = [
             coincidenceError.classList.add("appear");
             titleInput.value = "";  
         } else {
+            //add the new card with title in card array
             let newCard  = 
             {
                 card:{
@@ -508,7 +509,7 @@ function clickHandler(e) {
 
     }
 
- //hamburguer 
+//hamburguer 
 
  const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".mobile-menu");

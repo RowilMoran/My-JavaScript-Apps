@@ -1757,7 +1757,8 @@ button img {
 @media only screen and (max-width: 750px) {
   .hero {
     padding-top: 22vh;
-    min-height: 500px;
+    min-height: 400px;
+    max-height: 520px;
   }
   .hero .hero-container {
     flex-direction: column;
