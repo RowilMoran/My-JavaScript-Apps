@@ -19,6 +19,7 @@ body {
         width: 100%;
         height: 100%;
         @include m.flexCenter();
+        flex-wrap: wrap;
         gap:20px;
       /*   flex-wrap: wrap; */
 
@@ -341,6 +342,9 @@ button {
  
 }
 
-@media screen {
-    
+@media only screen and (max-width:750px){
+    .hero {
+        padding-top: 20vh;
+        min-height:110vh;
+    }
 }

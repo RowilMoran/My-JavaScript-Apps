@@ -492,17 +492,33 @@ document.addEventListener("DOMContentLoaded", e => {
 
 //scroll
 function clickHandler(e) {
-    e.preventDefault()
+ 
+    
+      const cardGenerated = document.querySelector('[data-id]:last-child');;
+    console.log(cardGenerated);
+    
+      const offsetTop = cardGenerated.offsetTop;
+    
+      scroll({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+  
 
-  const cardGenerated = document.querySelector('[data-id]:last-child');;
-console.log(cardGenerated);
+    }
 
-  const offsetTop = cardGenerated.offsetTop;
+ //hamburguer 
 
-  scroll({
-    top: offsetTop,
-    behavior: "smooth"
-  });
-}
+ const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".mobile-menu");
+console.log(hamburger)
+document.addEventListener("click", e => {
+    if (e.target.matches(".hamburger")) {
+        hamburger.classList.toggle("is-active");
+        menu.classList.toggle("show")
+    }
+});
+
+
 
 
