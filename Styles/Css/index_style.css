@@ -1340,7 +1340,7 @@ header {
 .mobile-menu {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: fixed;
   margin-left: auto;
   margin-right: auto;
@@ -1360,7 +1360,11 @@ header {
 .mobile-menu .dropdown-menu {
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 90px;
+  width: 100%;
+}
+.mobile-menu .dropdown-menu .games ul, .mobile-menu .dropdown-menu .api ul, .mobile-menu .dropdown-menu .other ul {
+  width: 100%;
 }
 .mobile-menu .dropdown-menu .games button, .mobile-menu .dropdown-menu .api button, .mobile-menu .dropdown-menu .other button {
   color: #fff;
