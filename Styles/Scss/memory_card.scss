@@ -149,9 +149,11 @@
 
     .cards-container{
         max-width: 100%;
+      
         perspective: 800px;
         display: grid;
         .card {
+           
             position: relative;
             transform-style: preserve-3d;
             transition: all 0.6s ease-in;
