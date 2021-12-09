@@ -1233,7 +1233,7 @@ header {
   justify-content: space-between;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
   background-color: #fff;
 }
 .nav-bar .logo {
@@ -1442,10 +1442,10 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 50vh;
   width: 900px;
   margin: 0 auto;
   max-width: 100%;
+  max-height: 330px;
 }
 .difficulty-container .difficulty {
   margin-top: 50px;
@@ -1534,6 +1534,7 @@ header {
   background-color: #e2df18;
   opacity: 0;
   pointer-events: none;
+  z-index: 999;
 }
 .game-container.show {
   opacity: 1;
@@ -1623,6 +1624,49 @@ header {
 .lost.show, .win.show {
   opacity: 1;
   pointer-events: all;
+}
+
+@media only screen and (max-width: 730px) {
+  .memory-card {
+    height: 100%;
+    background-position: left;
+    padding-bottom: 20px;
+  }
+  .memory-card h1 {
+    padding-top: 20vh;
+  }
+
+  .cards-container .card {
+    width: 90px;
+    height: 90px;
+  }
+  .cards-container .card img {
+    height: 100%;
+    width: 100%;
+  }
+  .cards-container .card .back {
+    max-width: 90px;
+    max-height: 90px;
+  }
+
+  .pro {
+    display: grid;
+    grid-template-columns: repeat(8, 6rem);
+    grid-template-rows: repeat(4, 6rem);
+    gap: 10px;
+    width: auto;
+  }
+
+  .easy {
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: repeat(4, 6rem);
+    gap: 10px;
+    width: auto;
+  }
+
+  .difficulty-container {
+    justify-content: center;
+  }
 }
 
 /*# sourceMappingURL=memory_card.css.map */

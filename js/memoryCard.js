@@ -1,3 +1,4 @@
+
 //lets Grap html tags and classes
 const cardsContainer = document.querySelector(".cards-container");
 const playerLivesCount = document.querySelector(".lives-value");
@@ -249,7 +250,6 @@ document.addEventListener("click", e => {
         menu.classList.toggle("show")
     }
 });
-
 
 
 
