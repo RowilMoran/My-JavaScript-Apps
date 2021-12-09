@@ -9,15 +9,15 @@
     <title>Memory Card</title>
 </head>
 <body>
-    <header>
-        <nav class="nav-bar container">
+    <header class = "header">
+        <nav class="nav-bar">
             <a class="logo" href="index.html">
                 <img src="resources/logo.png" alt="">
                 <span class="logo-text">Row App Site</span>   
             </a>
            <div class="dropdown-menu">
                 <div class="games">
-                    <button>Games<img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <button>Games <img src="Resources/downArrow.png" alt="down arrow"></button>
                     <ul class="dropdown">
                         <li><a href="snake.html">Snake</a></li>
                         <li><a href="memoryCard.html">Memory Card</a></li>
@@ -31,15 +31,45 @@
                     </ul>
                 </div>
                 <div class="other">
-                    <button>Others <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <button>Tools<img src="Resources/downArrow.png" alt="down arrow"></button>
                     <ul>
-                        <li><a href="#">ToDo App</a></li>
+                        <li><a href="saveResources.html">Save Resources</a></li>
                         <li><a href="#">Weather App</a></li>
                     </ul>
                 </div>
            </div>
         </nav>
+        <button class="hamburger hamburger--spring" type="button">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+        </button>
     </header>
+    <div class="mobile-menu">
+        <div class="dropdown-menu">
+            <div class="games">
+                <button>Games <img src="Resources/downArrow.png" alt="down arrow"></button>
+                <ul class="dropdown">
+                    <li><a href="snake.html">Snake</a></li>
+                    <li><a href="memoryCard.html">Memory Card</a></li>
+                </ul>
+            </div>
+            <div class="api">
+                <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                <ul>
+                    <li><a href="#">Movie App</a></li>
+                    <li><a href="#">Music App</a></li>
+                </ul>
+            </div>
+            <div class="other">
+                <button>Tools<img src="Resources/downArrow.png" alt="down arrow"></button>
+                <ul>
+                    <li><a href="saveResources.html">Save Resources</a></li>
+                    <li><a href="#">Weather App</a></li>
+                </ul>
+            </div>
+       </div>
+    </div>
     <!-- lost the game -->
     <div class="lost">
         <div class="lost-card">

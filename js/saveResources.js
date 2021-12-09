@@ -423,12 +423,10 @@ document.addEventListener("click", e => {
 
 //function copy to clikboard
 function copyToClipBoard(e) {
-    
-    const copyLink = e.target.parentElement.parentElement.children[0].getAttribute("href");
-    
-    console.log(copyLink);
-    navigator.clipboard.writeText(copyLink);
-    alert("Copied the text: " + copyLink);
+
+    const copyLink = e.target.parentElement.parentElement.querySelector(".name-icon-link a");
+    navigator.clipboard.writeText(copyLink.getAttribute("href"));
+    alert("Copied the text: " + copyLink.getAttribute("href"));
     
 }
 
@@ -509,15 +507,15 @@ function clickHandler(e) {
 
     }
 
-//hamburguer 
 
- const hamburger = document.querySelector(".hamburger");
+
+//hamburguer menú events
+const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".mobile-menu");
-console.log(hamburger)
 document.addEventListener("click", e => {
     if (e.target.matches(".hamburger")) {
         hamburger.classList.toggle("is-active");
-        menu.classList.toggle("show")
+        menu.classList.toggle("show");
     }
 });
 

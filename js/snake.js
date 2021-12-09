@@ -166,6 +166,18 @@ btn.addEventListener("click", e => {
 })
 
 
+//hamburguer menú events
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".mobile-menu");
+document.addEventListener("click", e => {
+    if (e.target.matches(".hamburger")) {
+        hamburger.classList.toggle("is-active");
+        menu.classList.toggle("show");
+    }
+});
+
+
+
 
 
 
