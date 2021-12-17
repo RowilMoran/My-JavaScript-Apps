@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles/Css/searchMovie.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+    <title>Movie Search App</title>
+</head>
+<body>
+    <header class = "header">
+        <nav class="nav-bar">
+            <a class="logo" href="index.html">
+                <img src="resources/logo.png" alt="">
+                <span class="logo-text">Row App Site</span>   
+            </a>
+           <div class="dropdown-menu">
+                <div class="games">
+                    <button>Games <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul class="dropdown">
+                        <li><a href="snake.html">Snake</a></li>
+                        <li><a href="memoryCard.html">Memory Card</a></li>
+                    </ul>
+                </div>
+                <div class="api">
+                    <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul>
+                        <li><a href="#">Movie App</a></li>
+                        <li><a href="#">Music App</a></li>
+                    </ul>
+                </div>
+                <div class="other">
+                    <button>Tools<img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <ul>
+                        <li><a href="saveResources.html">Save Resources</a></li>
+                        <li><a href="#">Weather App</a></li>
+                    </ul>
+                </div>
+           </div>
+        </nav>
+        <button class="hamburger hamburger--spring" type="button">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+        </button>
+    </header>
+    <div class="mobile-menu">
+        <div class="dropdown-menu">
+            <div class="games">
+                <button>Games <img src="Resources/downArrow.png" alt="down arrow"></button>
+                <ul class="dropdown">
+                    <li><a href="snake.html">Snake</a></li>
+                    <li><a href="memoryCard.html">Memory Card</a></li>
+                </ul>
+            </div>
+            <div class="api">
+                <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                <ul>
+                    <li><a href="#">Movie App</a></li>
+                    <li><a href="#">Music App</a></li>
+                </ul>
+            </div>
+            <div class="other">
+                <button>Tools<img src="Resources/downArrow.png" alt="down arrow"></button>
+                <ul>
+                    <li><a href="saveResources.html">Save Resources</a></li>
+                    <li><a href="#">Weather App</a></li>
+                </ul>
+            </div>
+       </div>
+    </div>
+
+    <!-- carousel -->
+    <section class="glider-section">
+        <h2>Your weekend friends for this week.</h2>
+        <div class="glider-contain">
+            <div class="glider"></div>
+            <button aria-label="Previous" class="glider-prev">«</button>
+            <button aria-label="Next" class="glider-next">»</button>
+            <div role="tablist" class="dots"></div>
+          </div>
+    </section>
+
+    <section class="discover">
+        <!-- movie nav -->
+        <div class="discover-nav">
+            <h3>Discover Movies and tv series.</h3>
+            <div class="discover-menu">
+                <button data-id = "newAndPopular">New & popular</button>
+                <button data-id="movies">Movies</button>
+                <button data-id="tvSeries">Tv series</button>
+            </div>
+            <div class="search-input" data-id="search">
+                <form  class="search-form">
+                    <img src="/Resources/movieSearch/bi_search.png" alt="search icon">
+                    <input type="text" placeholder="Search something here..." id="search">
+                </form>
+            </div>
+        </div>
+        
+        <div class="discover-section">
+            <div class="discover-content container"></div>
+            <button>Discover More</button>
+        </div>
+    </section>
+
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script src="/js/movieSearch.js"></script>
+</body>
+</html>

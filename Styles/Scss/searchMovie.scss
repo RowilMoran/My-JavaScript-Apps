@@ -1,0 +1,183 @@
+@use '_variables' as v;
+@use '_reset';
+@use '_mixins' as m;
+@use '_utilities'; 
+@use '_navMenu';
+@use '_layout';
+
+
+body {
+    background-color: #2E2C39;
+}
+.glider-section {
+    max-width: 90%;
+    margin: 0 auto;
+    h2 {
+        text-align: center;
+        color: #fff;
+        padding: 10px;
+        font-size: v.$step-2;
+        padding: 5rem 0;
+    }
+    .glider-contain {
+        margin-bottom: 5rem;
+        .glider {
+            div {
+                margin:0 10px;
+                position: relative;
+                p {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    padding: 10px;
+                    background-color: v.$primary-color;
+                    font-weight: 700;
+                    opacity: 0;
+                    transform: translateY(-10%);
+                    transition: all 0.3s ease-in;
+                }
+                img {
+                    border-radius: 15px 0 0 15px;
+                    max-width: 300px;
+                    width: 100%;
+                    display: inline-block;
+                    pointer-events: all;
+                    &:hover + p {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.discover-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 13vh;
+    color: #fff;
+    h3 {
+        font-size: v.$step-1;
+    }
+    .discover-menu {
+        display: flex;
+        gap: 12px;
+        button {
+            background-color: inherit;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: v.$step--1;
+            padding: 8px;
+            position: relative;
+           
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 5px;   
+                border-radius: 2.5px; 
+                background-color:v.$third-color;
+                box-shadow: -1px -2px 20px rgba(196, 38, 38, 0.849);
+                left: 0;
+                bottom: -10px;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 250ms;
+            }
+            &:hover {
+                color: rgb(153, 152, 152);
+            } 
+            &.active::after{
+                transform: scaleX(1);
+            }
+            
+        }
+    }
+    .search-input{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       max-width: 320px;
+       width: 100%;
+       border-left: 2px solid rgb(80, 80, 80);
+        input { 
+            width: 70%;
+            border: none;
+            padding: 7px;
+            background-color: inherit;
+            color: white;
+            font-size: v.$step--1;
+            &:focus {
+                outline: none;
+            }
+            &::placeholder {
+                font-size: 17px;
+            }
+        }
+        img {
+            width: 20px;
+        }
+    }
+}
+
+.discover-section {
+    background-color: #282636;
+    padding: 50px 0;
+    min-height: 100vh;
+    .discover-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        justify-items: center;
+        align-items: start;
+        gap: 20px;
+        img {
+            width: 200px;
+            &.hidden-style {
+                display: none;
+            }
+        }
+    }
+    button {
+        display: inline-block;
+        margin: 50px auto;
+        padding: 12px 40px;
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 700;
+        background-color: v.$third-color;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.1s ease-in;
+        &:hover {
+            box-shadow:  -1px -2px 20px rgba(196, 38, 38, 0.849);
+        }
+    }
+    .not-found {
+        background-color: rgb(102, 163, 102);
+        padding: 10px;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+    }
+}
+
+@media only screen and(max-width:720px) {
+    .glider-section {
+        padding-top: 10vh;
+    }
+    .discover {
+        .discover-nav {
+            padding: 5px;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
+        }
+    }
+    .discover-section {
+        padding: 10px;
+    }
+}
