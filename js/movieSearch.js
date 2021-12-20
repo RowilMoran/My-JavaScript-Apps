@@ -1,7 +1,18 @@
 //grab glider to print movie trending.
 const gliderInDOM = document.querySelector(".glider"),
 //content on discover section
-    discoverSection = document.querySelector(".discover-content"); 
+    discoverSection = document.querySelector(".discover-content"),
+//pagination
+    next = document.querySelector(".next"),
+    prev = document.querySelector(".prev"),
+    current = document.querySelector(".current");
+
+let currentPage = 1,
+    nextPage    = 2,
+    prevPage    = 3,
+    lastUrl     = "",
+    totalPage   = 100;
+
 
 
 const APIkey = "dfc99425a12f334b1e9917f2c257bb50";
@@ -68,12 +79,13 @@ async function gliderData() {
    //get Data of popular & new content
    async function getDiscoverData(url) {
        try {
-        let response = await fetch(url),
-            jsonResponse = await response.json();
+           lastUrl     = url;
+           let response = await fetch(url),
+           jsonResponse = await response.json();
            
-            if(!response.ok) throw {status:response.status, statusText: response.statusText};
-            if (jsonResponse.results.length === 0) {
-                discoverSection.innerHTML = `<p class = "not-found">Try somthing else<p>`
+           if(!response.ok) throw {status:response.status, statusText: response.statusText};
+           if (jsonResponse.results.length === 0) {
+               discoverSection.innerHTML = `<p class = "not-found">Try somthing else<p>`
             } else  {
                 jsonResponse.results.forEach(movie => {
                     let posterUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
@@ -82,6 +94,10 @@ async function gliderData() {
                     discoverSection.appendChild(posterImg);
                     discoverMore();
                 });
+                currentPage = jsonResponse.page,
+                nextPage    =  currentPage + 1,
+                prevPage    =  currentPage - 1,
+                totalPage   = jsonResponse.total_pages;
             }
         } catch (error){
             let message = error.statusText || "Not found";
@@ -122,13 +138,49 @@ function searchMovie() {
         e.preventDefault();
         discoverSection.innerHTML="";
         let movieInput = document.getElementById("search").value;
-        getDiscoverData(searchMovieUrl+"&query="+movieInput)
+        getDiscoverData(searchMovieUrl+"&query="+movieInput+"&page=1")
         document.querySelectorAll(".discover-nav button").forEach(button=> {
             button.classList.remove("active")
         })
         e.target.reset();
     })
 }
+
+//pagination events
+next.addEventListener("click", () => {
+    if (nextPage <= totalPage) {
+        pageCall(nextPage);
+        console.log(nextPage)
+    }
+})
+
+
+prev.addEventListener("click", () => {
+    if (prevPage >= 0) {
+        pageCall(prevPage)
+    }
+})
+
+
+function pageCall(page) {
+    discoverSection.innerHTML=""
+    let urlSplit = lastUrl.split("?");
+    let queryParamas = urlSplit[1].split("&");
+    let key = queryParamas[queryParamas.length - 1].split("=");
+    console.log(key)
+    if (key[0] != "page") {
+        let url = lastUrl + "&page=" + page;
+        getDiscoverData(url)
+    } else {
+        key[1] = page.toString();
+        let a = key.join("=");
+        queryParamas[queryParamas.length - 1]  = a;
+        let b =  queryParamas.join("&");
+        let url = urlSplit[0] + "?" + b;
+        getDiscoverData(url);
+    }
+}
+
 
 
     
@@ -141,24 +193,15 @@ function showStyleOnclick(e) {
     e.target.classList.add("active");
 }
 
-//hamburger menú
-const hamburger = document.querySelector(".hamburger");
-const menu = document.querySelector(".mobile-menu");
-document.addEventListener("click", e => {
-    if (e.target.matches(".hamburger")) {
-        hamburger.classList.toggle("is-active");
-        menu.classList.toggle("show");
-    }
-});
 
 
 
 //load more function     
 function discoverMore() {
-        const items = document.querySelectorAll(".discover-content img"),
-        hiddenItems = document.getElementsByClassName("hidden-style"),
-        discoverMoreButton = document.querySelector(".discover-section button");
-
+    const items = document.querySelectorAll(".discover-content img"),
+    hiddenItems = document.getElementsByClassName("hidden-style"),
+    discoverMoreButton = document.querySelector(".discover-section button");
+    
     items.forEach((item, index) => {
         if (index > 10 - 1) {
             item.classList.add("hidden-style");
@@ -171,14 +214,25 @@ function discoverMore() {
         }
         if(hiddenItems.length === 0) {
             discoverMoreButton.style.display= "none";
+            //show pagination
+            document.querySelector(".pagination-container").style.display= "flex";
         }
     });
-
+    
     discoverMoreButton.style.display= "block";
+    //hide pagination as default
+    document.querySelector(".pagination-container").style.display= "none";
     
 }
 
 
-
-
+//hamburger menú
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".mobile-menu");
+document.addEventListener("click", e => {
+    if (e.target.matches(".hamburger")) {
+        hamburger.classList.toggle("is-active");
+        menu.classList.toggle("show");
+    }
+});
 
