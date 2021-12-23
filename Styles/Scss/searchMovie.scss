@@ -133,12 +133,6 @@ body {
         justify-items: center;
         align-items: start;
         gap: 20px;
-        img {
-            width: 200px;
-            &.hidden-style {
-                display: none;
-            }
-        }
     }
     button {
         display: inline-block;
@@ -162,6 +156,57 @@ body {
         color: #fff;
         font-weight: 700;
         text-align: center;
+    }
+}
+
+.card-container {
+    margin-bottom: 40px;
+    transition: all ease-in 0.2s;
+    figure {
+        position: relative;
+        width: 100%;
+        max-width: 200px;
+        .img-container {
+            position: relative;
+            img {
+                width: 200px;
+            }
+            .vote {
+                position: absolute;
+                bottom: 0;
+                right:  -10px;
+                background-color: v.$primary-color;
+                color: #000;
+                font-weight: 700;
+                padding: 3px 8px;
+                border-radius: 25px;
+            }
+
+        }
+       
+        figcaption {
+            color: #fff;
+            .year-genre {
+                margin: 4px 0;
+                font-size: 0.8rem;
+                font-weight: 700;
+                color: rgb(24, 172, 115);
+                display: flex;
+                gap: 10px;
+            }
+            h4 {
+                font-weight: 400;
+                margin: 5px 0;
+            }
+            
+        }
+
+    }
+    &.hidden-style {
+        display: none;
+    }
+    &:hover {
+        transform: scale(1.05);
     }
 }
 
@@ -205,5 +250,20 @@ body {
             color: rgb(78, 78, 78);
             pointer-events: none;
         }
+    }
+}
+
+.overview {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    &.show {
+        display: flex;
     }
 }

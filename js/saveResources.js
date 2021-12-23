@@ -492,19 +492,13 @@ document.addEventListener("DOMContentLoaded", e => {
 
 //scroll
 function clickHandler(e) {
- 
-    
       const cardGenerated = document.querySelector('[data-id]:last-child');;
-    console.log(cardGenerated);
-    
       const offsetTop = cardGenerated.offsetTop;
     
       scroll({
         top: offsetTop,
         behavior: "smooth"
       });
-  
-
     }
 
 

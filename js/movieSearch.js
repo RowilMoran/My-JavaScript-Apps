@@ -17,6 +17,84 @@ let currentPage = 1,
 
 const APIkey = "dfc99425a12f334b1e9917f2c257bb50";
 const baseUrl = "https://api.themoviedb.org/3"
+const genreList = [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 16,
+      "name": "Animation"
+    },
+    {
+      "id": 35,
+      "name": "Comedy"
+    },
+    {
+      "id": 80,
+      "name": "Crime"
+    },
+    {
+      "id": 99,
+      "name": "Documentary"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    },
+    {
+      "id": 10751,
+      "name": "Family"
+    },
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 36,
+      "name": "History"
+    },
+    {
+      "id": 27,
+      "name": "Horror"
+    },
+    {
+      "id": 10402,
+      "name": "Music"
+    },
+    {
+      "id": 9648,
+      "name": "Mystery"
+    },
+    {
+      "id": 10749,
+      "name": "Romance"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 10770,
+      "name": "TV Movie"
+    },
+    {
+      "id": 53,
+      "name": "Thriller"
+    },
+    {
+      "id": 10752,
+      "name": "War"
+    },
+    {
+      "id": 37,
+      "name": "Western"
+    }
+  ]
 
 //glider fetchUrl (movie trending)
 const movieTrending = baseUrl + "/trending/movie/week?api_key=" + APIkey;
@@ -32,10 +110,7 @@ const tvSeriesData = baseUrl + `/tv/popular?api_key=${APIkey}&language=en-US&pag
 
 //search movie
 const searchMovieUrl = baseUrl + "/search/movie?api_key="+ APIkey;
-/* 
-https://api.themoviedb.org/3/search/movie?api_key=
 
-*/
 //show glider
 async function gliderData() {
     try{
@@ -87,23 +162,73 @@ async function gliderData() {
            if (jsonResponse.results.length === 0) {
                discoverSection.innerHTML = `<p class = "not-found">Try somthing else<p>`
             } else  {
-                jsonResponse.results.forEach(movie => {
-                    let posterUrl = `https://image.tmdb.org/t/p/w300${movie.poster_path}`;
-                    let posterImg = document.createElement("img");
-                    (movie.poster_path === null) ? posterImg.setAttribute("src", "Resources/movieSearch/not-abilable.jpg") : posterImg.setAttribute("src", posterUrl);
-                    discoverSection.appendChild(posterImg);
-                    discoverMore();
-                });
+                renderInfo(jsonResponse.results);
+
                 currentPage = jsonResponse.page,
                 nextPage    =  currentPage + 1,
                 prevPage    =  currentPage - 1,
                 totalPage   = jsonResponse.total_pages;
+                
+                document.querySelector(".current-pag").innerText = currentPage
+                if (currentPage <= 1) {
+                    discoverMore();
+                    prev.classList.add("disable");
+                    next.classList.remove("disable");
+                } else if (currentPage >= totalPage) {
+                    next.classList.add("disable");
+                    prev.classList.remove("disable");
+                } else {
+                    next.classList.remove("disable");
+                    prev.classList.remove("disable");
+                }
+
+               setTimeout(()=> {document.querySelector(".discover").scrollIntoView({behavior : "smooth"});}, 100);
+                
             }
         } catch (error){
             let message = error.statusText || "Not found";
             console.log(message);
         }
     }
+
+    //render info
+    function renderInfo(data) {
+        console.log(data)
+        data.forEach(movie => {
+         const {title, poster_path, vote_average, overview, release_date, genre_ids,first_air_date, name} = movie;
+         const posterUrl = "https://image.tmdb.org/t/p/w300";
+         //card container
+         const cardContainer = document.createElement("div")
+         cardContainer.classList.add("card-container") 
+         
+         //render
+        const poster = poster_path === null ?  "Resources/movieSearch/not-abilable.jpg" :  posterUrl + poster_path; 
+            cardContainer.innerHTML = `
+            <div class ="overview"> ${overview}</div>
+            <figure>
+                <div class = "img-container">
+                    <img src= "${poster}" alt="${title ? title : name}">
+                    <p class = "vote">${vote_average}</p>
+                </div>
+                <figcaption class = "title-genre">
+                    <div class = "year-genre">
+                        <p class = "release">${release_date ? release_date.split("-")[0]  : first_air_date.split("-")[0]} </p>
+                        <span>/</span>
+                        <p class = "genre">${ getGenrers(genreList,genre_ids) }</p>
+                    </div>
+                    <h4>${title ? title : name}</h4>
+                </figcaption>
+            </figure>
+            `
+            discoverSection.appendChild(cardContainer);
+        });
+      document.querySelectorAll("figure").forEach(e=> {
+        e.addEventListener("click", card => {
+            console.log(card.target)
+        })
+      })
+    }
+    
     
     
     //show corresponding content
@@ -150,20 +275,20 @@ function searchMovie() {
 next.addEventListener("click", () => {
     if (nextPage <= totalPage) {
         pageCall(nextPage);
-        console.log(nextPage)
     }
 })
 
 
 prev.addEventListener("click", () => {
     if (prevPage >= 0) {
-        pageCall(prevPage)
+        pageCall(prevPage);
     }
 })
 
 
 function pageCall(page) {
     discoverSection.innerHTML=""
+   
     let urlSplit = lastUrl.split("?");
     let queryParamas = urlSplit[1].split("&");
     let key = queryParamas[queryParamas.length - 1].split("=");
@@ -198,7 +323,7 @@ function showStyleOnclick(e) {
 
 //load more function     
 function discoverMore() {
-    const items = document.querySelectorAll(".discover-content img"),
+    const items = document.querySelectorAll(".card-container"),
     hiddenItems = document.getElementsByClassName("hidden-style"),
     discoverMoreButton = document.querySelector(".discover-section button");
     
@@ -207,14 +332,15 @@ function discoverMore() {
             item.classList.add("hidden-style");
         }
     })
-    
-    discoverMoreButton.addEventListener("click", e => {
-        for (let img of hiddenItems) {
-            img.classList.remove("hidden-style");
-        }
-        if(hiddenItems.length === 0) {
+    discoverMoreButton.addEventListener("click", () => {
+        items.forEach((item) => {
+            item.classList.remove("hidden-style");  
+        });
+        if (hiddenItems.length === 0) {
+            
             discoverMoreButton.style.display= "none";
             //show pagination
+            
             document.querySelector(".pagination-container").style.display= "flex";
         }
     });
@@ -236,3 +362,16 @@ document.addEventListener("click", e => {
     }
 });
 
+
+
+//get genrers
+
+function getGenrers(arr1,arr2) {
+    let movieGenre = [];
+    let movieString ="";
+    let result = arr1.filter(o1 => arr2.some(o2 => o1.id === o2));
+    result.forEach(e=> movieGenre.push(e.name));
+    movieGenre.forEach(genre => movieString +=  genre + " ");
+    console.log(movieString)
+    return movieString.split(" ").slice(0 ,2 ).join(", ")
+}
