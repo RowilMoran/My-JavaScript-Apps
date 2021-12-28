@@ -1574,10 +1574,11 @@ body {
   position: relative;
   width: 100%;
   max-width: 200px;
+  transition: all 0.2s ease-in;
 }
 .card-container figure .img-container {
-  pointer-events: none;
   position: relative;
+  pointer-events: none;
 }
 .card-container figure .img-container img {
   width: 200px;
@@ -1607,6 +1608,9 @@ body {
 .card-container figure figcaption h4 {
   font-weight: 400;
   margin: 5px 0;
+}
+.card-container figure:hover {
+  transform: scale(1.05);
 }
 .card-container.hidden-style {
   display: none;
