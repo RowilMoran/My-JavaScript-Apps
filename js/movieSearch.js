@@ -181,8 +181,6 @@ async function gliderData() {
                     next.classList.remove("disable");
                     prev.classList.remove("disable");
                 }
-
-               setTimeout(()=> {document.querySelector(".discover").scrollIntoView({behavior : "smooth"});}, 100);
                 
             }
         } catch (error){
@@ -195,8 +193,9 @@ async function gliderData() {
     function renderInfo(data) {
         console.log(data)
         data.forEach(movie => {
-         const {title, poster_path, vote_average, overview, release_date, genre_ids,first_air_date, name} = movie;
+         const {title, poster_path, vote_average, overview, release_date, genre_ids,first_air_date, name, vote_count,backdrop_path} = movie;
          const posterUrl = "https://image.tmdb.org/t/p/w300";
+         const bgUrl = "https://image.tmdb.org/t/p/w500";
          //card container
          const cardContainer = document.createElement("div")
          cardContainer.classList.add("card-container") 
@@ -204,7 +203,17 @@ async function gliderData() {
          //render
         const poster = poster_path === null ?  "Resources/movieSearch/not-abilable.jpg" :  posterUrl + poster_path; 
             cardContainer.innerHTML = `
-            <div class ="overview"> ${overview}</div>
+        
+            <div class ="overview"> 
+                <div class ="overview-container" style = "background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), url(${bgUrl+backdrop_path});">
+                    <div class="overview-info">
+                        <h3>${title ? title : name}</h3>
+                        <p class ="vote-overview">${vote_count} votes</p>
+                        <p class ="over-desc">${overview}</p>
+                        <button class="return-btn">Return to App</button>
+                    </div>
+                </div>
+            </div>
             <figure>
                 <div class = "img-container">
                     <img src= "${poster}" alt="${title ? title : name}">
@@ -212,7 +221,7 @@ async function gliderData() {
                 </div>
                 <figcaption class = "title-genre">
                     <div class = "year-genre">
-                        <p class = "release">${release_date ? release_date.split("-")[0]  : first_air_date.split("-")[0]} </p>
+                        <p class = "release">${ first_air_date ? first_air_date.split("-")[0] : release_date.split("-")[0] } </p>
                         <span>/</span>
                         <p class = "genre">${ getGenrers(genreList,genre_ids) }</p>
                     </div>
@@ -222,14 +231,23 @@ async function gliderData() {
             `
             discoverSection.appendChild(cardContainer);
         });
-      document.querySelectorAll("figure").forEach(e=> {
-        e.addEventListener("click", card => {
-            console.log(card.target)
+      document.querySelectorAll("figure").forEach(card=> {
+          card.addEventListener("click", el => {
+              let overview =  el.target.previousElementSibling;
+              overview.classList.add("show");
+            });
+        });
+
+        //close overview
+        document.querySelectorAll(".return-btn").forEach(button=> {
+            button.addEventListener("click", e=> {
+                document.querySelectorAll(".overview").forEach(overview=> {
+                    overview.classList.remove("show")
+                })
+            })
         })
-      })
     }
-    
-    
+   
     
     //show corresponding content
     function showContent() {
@@ -263,7 +281,7 @@ function searchMovie() {
         e.preventDefault();
         discoverSection.innerHTML="";
         let movieInput = document.getElementById("search").value;
-        getDiscoverData(searchMovieUrl+"&query="+movieInput+"&page=1")
+        getDiscoverData(searchMovieUrl+"&query="+movieInput+"&page=1");
         document.querySelectorAll(".discover-nav button").forEach(button=> {
             button.classList.remove("active")
         })
@@ -275,6 +293,7 @@ function searchMovie() {
 next.addEventListener("click", () => {
     if (nextPage <= totalPage) {
         pageCall(nextPage);
+        setTimeout(()=> {document.querySelector(".discover").scrollIntoView({behavior : "smooth"});}, 100);
     }
 })
 
@@ -282,6 +301,7 @@ next.addEventListener("click", () => {
 prev.addEventListener("click", () => {
     if (prevPage >= 0) {
         pageCall(prevPage);
+        setTimeout(()=> {document.querySelector(".discover").scrollIntoView({behavior : "smooth"});}, 100);
     }
 })
 
@@ -325,7 +345,7 @@ function showStyleOnclick(e) {
 function discoverMore() {
     const items = document.querySelectorAll(".card-container"),
     hiddenItems = document.getElementsByClassName("hidden-style"),
-    discoverMoreButton = document.querySelector(".discover-section button");
+    discoverMoreButton = document.querySelector(".discover-btn");
     
     items.forEach((item, index) => {
         if (index > 10 - 1) {
@@ -372,6 +392,5 @@ function getGenrers(arr1,arr2) {
     let result = arr1.filter(o1 => arr2.some(o2 => o1.id === o2));
     result.forEach(e=> movieGenre.push(e.name));
     movieGenre.forEach(genre => movieString +=  genre + " ");
-    console.log(movieString)
-    return movieString.split(" ").slice(0 ,2 ).join(", ")
+    return movieString.split(" ").slice(0 ,2 ).join(", ");
 }

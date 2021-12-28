@@ -162,11 +162,13 @@ body {
 .card-container {
     margin-bottom: 40px;
     transition: all ease-in 0.2s;
+    cursor: pointer;
     figure {
         position: relative;
         width: 100%;
         max-width: 200px;
         .img-container {
+            pointer-events: none;
             position: relative;
             img {
                 width: 200px;
@@ -185,6 +187,7 @@ body {
         }
        
         figcaption {
+            pointer-events: none;
             color: #fff;
             .year-genre {
                 margin: 4px 0;
@@ -197,16 +200,63 @@ body {
             h4 {
                 font-weight: 400;
                 margin: 5px 0;
-            }
-            
+            }  
         }
-
     }
     &.hidden-style {
         display: none;
     }
-    &:hover {
-        transform: scale(1.05);
+  
+}
+.overview {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+     display: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.753);
+    .overview-container {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        max-width: 500px;
+        width: 100%;
+        padding: 20px;
+        min-height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .overview-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 5px;
+            h3 {
+                font-size: 2.1rem;
+                padding: 5px 0;
+            }
+            .vote-overview {
+                font-weight: 100;
+                padding: 10px 0;
+            }
+            .over-desc {
+                line-height: 1.5;
+            }
+            .return-btn {
+                display: block;
+                margin: 20px auto;
+            }
+        }
+    }
+
+    &.show {
+       display: flex;
     }
 }
 
@@ -253,17 +303,3 @@ body {
     }
 }
 
-.overview {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    &.show {
-        display: flex;
-    }
-}

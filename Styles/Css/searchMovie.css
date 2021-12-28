@@ -1568,6 +1568,7 @@ body {
 .card-container {
   margin-bottom: 40px;
   transition: all ease-in 0.2s;
+  cursor: pointer;
 }
 .card-container figure {
   position: relative;
@@ -1575,6 +1576,7 @@ body {
   max-width: 200px;
 }
 .card-container figure .img-container {
+  pointer-events: none;
   position: relative;
 }
 .card-container figure .img-container img {
@@ -1591,6 +1593,7 @@ body {
   border-radius: 25px;
 }
 .card-container figure figcaption {
+  pointer-events: none;
   color: #fff;
 }
 .card-container figure figcaption .year-genre {
@@ -1608,8 +1611,56 @@ body {
 .card-container.hidden-style {
   display: none;
 }
-.card-container:hover {
-  transform: scale(1.05);
+
+.overview {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.753);
+}
+.overview .overview-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  min-height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overview .overview-container .overview-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+.overview .overview-container .overview-info h3 {
+  font-size: 2.1rem;
+  padding: 5px 0;
+}
+.overview .overview-container .overview-info .vote-overview {
+  font-weight: 100;
+  padding: 10px 0;
+}
+.overview .overview-container .overview-info .over-desc {
+  line-height: 1.5;
+}
+.overview .overview-container .overview-info .return-btn {
+  display: block;
+  margin: 20px auto;
+}
+.overview.show {
+  display: flex;
 }
 
 @media only screen and (max-width: 720px) {
@@ -1652,21 +1703,6 @@ body {
   border: 1px solid #4e4e4e;
   color: #4e4e4e;
   pointer-events: none;
-}
-
-.overview {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-.overview.show {
-  display: flex;
 }
 
 /*# sourceMappingURL=searchMovie.css.map */
