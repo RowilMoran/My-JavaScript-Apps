@@ -11,25 +11,25 @@
     <header class = "header">
         <nav class="nav-bar">
             <a class="logo" href="index.html">
-                <img src="resources/logo.png" alt="">
+                <img src="resources/home/logo.png" alt="">
                 <span class="logo-text">Row App Site</span>   
             </a>
            <div class="dropdown-menu">
                 <div class="games">
-                    <button>Games <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <button>Games <img src="Resources/home/downArrow.png" alt="down arrow"></button>
                     <ul class="dropdown">
                         <li><a href="snake.html">Snake</a></li>
                         <li><a href="memoryCard.html">Memory Card</a></li>
                     </ul>
                 </div>
                 <div class="api">
-                    <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <button>API <img src="Resources/home/downArrow.png" alt="down arrow"></button>
                     <ul>
                         <li><a href="searchMovie.html">Movie App</a></li>
                   </ul>
                 </div>
                 <div class="other">
-                    <button>Tools<img src="Resources/downArrow.png" alt="down arrow"></button>
+                    <button>Tools<img src="Resources/home/downArrow.png" alt="down arrow"></button>
                     <ul>
                         <li><a href="saveResources.html">Save Resources</a></li>
                     </ul>
@@ -45,20 +45,20 @@
     <div class="mobile-menu">
         <div class="dropdown-menu">
             <div class="games">
-                <button>Games <img src="Resources/downArrow.png" alt="down arrow"></button>
+                <button>Games <img src="Resources/home/downArrow.png" alt="down arrow"></button>
                 <ul class="dropdown">
                     <li><a href="snake.html">Snake</a></li>
                     <li><a href="memoryCard.html">Memory Card</a></li>
                 </ul>
             </div>
             <div class="api">
-                <button>API <img src="Resources/downArrow.png" alt="down arrow"></button>
+                <button>API <img src="Resources/home/downArrow.png" alt="down arrow"></button>
                 <ul>
                     <li><a href="searchMovie.html">Movie App</a></li>
                 </ul>
             </div>
             <div class="other">
-                <button>Tools<img src="Resources/downArrow.png" alt="down arrow"></button>
+                <button>Tools<img src="Resources/home/downArrow.png" alt="down arrow"></button>
                 <ul>
                     <li><a href="saveResources.html">Save Resources</a></li>
                 </ul>
@@ -72,50 +72,63 @@
                 <h1> My <br><span class="js-theme"> Javascript</span> <br> Aplications</h1>
                 <p class="my-2">A Collection of Apps I Have created</p>
             </div>
-            <img src="Resources/heroImg.svg" alt="hero img">
+            <img src="/Resources/home/hero.svg" alt="hero img">
         </section>
     
         <section class="cards">
            <div class="cards-container container">
                 <div class="ctn-card">
-                   <h3 class="tag-title">Games</h3>
                     <div class="card">
+                        <h3 class="tag-title">Game</h3>
                         <a  class="clickable-card" href="snake.html"></a>
-                        <h4 class="card-title my-2">Snake Game</h4>
-                        <img class="mb-2" src=  "Resources/home/snake-preview.png" alt="">
-                        <p class="card-desc">
-                            Make the snake eat mango! If you get one, the snake will grow, so be careful, DONT'T HIT THE SNAKE.   
-                        </p>
+                        <img src=  "Resources/home/snake-preview.png" alt="">
+                        <div class="card-desc-container">
+                            <h4 class="card-title my-2">Snake Game</h4>
+                            <p class="tech">html / scss / Javascript</p>
+                            <p class="card-desc">
+                                Make the snake eat mango! If you get one, the snake will grow, so be careful, DONT'T HIT THE SNAKE.   
+                            </p>
+                        </div>
                     </div>
                     <div class="card mt-2">
+                        <h3 class="tag-title">Game</h3>
                         <a  class="clickable-card" href="memoryCard.html"></a>
-                        <h4 class="card-title my-2">Teen Titans GO! Memory Card</h4>
-                        <img class="mb-2" src=  "Resources/home/memoryCard.png" alt="">
-                        <p class="card-desc">
-                            Help the Titans to win this game! I hope you have a good memory, you'll need It. <span class="tech">Html/SCSS/Javascript</span>   
-                        </p>
+                        <img src=  "Resources/home/memoryCard.png" alt="">
+                        <div class="card-desc-container">
+                            <h4 class="card-title my-2">Teen Titans GO! Memory Card</h4>
+                            <p class="tech">Html/SCSS/Javascript</p>
+                            <p class="card-desc">
+                                Help the Titans to win this game! I hope you have a good memory, you'll need It.   
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="ctn-card">
-                   <h3 class="tag-title">Api</h3>
                     <div class="card">
-                        <a  class="clickable-card" href="snake.html"></a>
-                        <h4 class="card-title">Snake Game</h4>
-                        <img src="" alt="">
-                        <p class="card-desc">
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, magniudiandae, diuas magora optio a deleniti dolore deserunt vel corrupti minus voluptatem corporis. Sit ipsum nihil at.
-                        </p>
+                        <h3 class="tag-title">API</h3>
+                        <a  class="clickable-card" href="searchMovie.html"></a>
+                        <img src=  "Resources/home/searchMovie.png" alt="">
+                        <div class="card-desc-container">
+                            <h4 class="card-title my-2">Search Movie App</h4>
+                            <p class="tech">Html/SCSS/Javascript</p>
+                            <p class="card-desc">
+                                In this project Fetch with async await was used to get the data from TMBD api.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="ctn-card">
-                   <h3 class="tag-title">Others</h3>
                     <div class="card">
-                        <a  class="clickable-card" href="snake.html"></a>
-                        <h4 class="card-title">Snake Game</h4>
-                        <img src="" alt="">
-                        <p class="card-desc">
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, magniudiandae, diuas magora optio a deleniti dolore deserunt vel corrupti minus voluptatem corporis. Sit ipsum nihil at.
-                        </p>
+                        <h3 class="tag-title">Tools</h3>
+                        <a  class="clickable-card" href="saveResources.html"></a>
+                        <img src=  "Resources/home/save_Resources.png" alt="">
+                        <div class="card-desc-container">
+                            <h4 class="card-title my-2">Save your Resources</h4>
+                            <p class="tech">Html/SCSS/Javascript</p>
+                            <p class="card-desc">
+                                In this project Fetch with async await was used to get the data from TMBD api.
+                            </p>
+                        </div>
                     </div>
                 </div>
            </div>
