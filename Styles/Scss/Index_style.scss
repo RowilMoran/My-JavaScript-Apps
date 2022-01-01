@@ -4,8 +4,7 @@
 @use '_layout';
 @use '_utilities'; 
 @use '_navMenu';
-
-
+@use '_footer';
 
 
 .hero {
@@ -14,14 +13,13 @@
     place-items: center;
     padding: 20px;
     height: 100vh;
-
+    max-width: 1020px;
+    width: 100%;
 
     img {
-        max-width: 100%;
-        width: 650px;
-        height: auto;
-        display: block;
-     
+    
+justify-self: flex-end;
+        width: 500px;
 
     }
 }

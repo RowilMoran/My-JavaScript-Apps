@@ -1415,18 +1415,56 @@ header {
     font-size: clamp(1.31rem, 1.24rem + 0.37vw, 1.5rem);
   }
 }
+footer {
+  height: 20vh;
+  background-color: #37474F;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+footer .footer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+footer .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+footer .social img {
+  width: 25px;
+  display: block;
+}
+footer .footer-logo .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  gap: 5px;
+  text-decoration: none;
+}
+footer .footer-logo .logo img {
+  width: 50px;
+}
+
 .hero {
   display: grid;
   grid-template-columns: 40% 60%;
   place-items: center;
   padding: 20px;
   height: 100vh;
+  max-width: 1020px;
+  width: 100%;
 }
 .hero img {
-  max-width: 100%;
-  width: 650px;
-  height: auto;
-  display: block;
+  justify-self: flex-end;
+  width: 500px;
 }
 
 .hero-desc {

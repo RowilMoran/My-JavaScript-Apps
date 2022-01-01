@@ -1233,7 +1233,7 @@ header {
   justify-content: space-between;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 998;
   background-color: #fff;
 }
 .nav-bar .logo {
@@ -1413,6 +1413,44 @@ header {
 .auto-margin {
   margin: 0 auto;
   display: block;
+}
+
+footer {
+  height: 20vh;
+  background-color: #37474F;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+footer .footer-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+footer .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+footer .social img {
+  width: 25px;
+  display: block;
+}
+footer .footer-logo .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.5rem;
+  gap: 5px;
+  text-decoration: none;
+}
+footer .footer-logo .logo img {
+  width: 50px;
 }
 
 html {

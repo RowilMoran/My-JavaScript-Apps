@@ -4,7 +4,7 @@
 @use '_utilities'; 
 @use '_navMenu';
 @use '_layout';
-
+@use '_footer';
 
 .pop-up {
     opacity: 0;
@@ -41,7 +41,7 @@
 .difficulty {
     max-width: 350px;
     text-align: center;
-    
+   
     h3 {
         font-size: v.$step-2;
     }
@@ -103,6 +103,7 @@
         background-color: v.$primary-color;
         border-radius: 15px;
         padding: 20px;
+        margin-bottom: 20px;
         .controls-container {
             background-color: #fff;
             font-size: v.$step--1;

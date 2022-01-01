@@ -1,0 +1,50 @@
+@use '_variables' as v;
+@use '_reset';
+@use '_mixins' as m;
+@use '_utilities'; 
+@use '_navMenu';
+@use '_layout';
+
+footer {
+  height: 20vh;
+  background-color: v.$secondary-color ;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .footer-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+  }
+  .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      img {
+          width: 25px;
+          display: block;
+
+      }
+  }
+
+  .footer-logo {
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 1.5rem;
+        gap: 5px;
+        text-decoration: none;
+          img {
+              width: 50px;
+          }
+      }
+
+  }
+ 
+}
